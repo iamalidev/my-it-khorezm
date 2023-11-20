@@ -21,7 +21,7 @@ function ProccessCard() {
         <p className="proccess_data">{`${num >= 100 ? "10" : num / 10}/10`}</p>
       </div>
       <div className="proccess_bottom">
-        <GreenBtn link="/" padding="13px 30px" text="Davom ettirish" />
+        <GreenBtn link="/tests" padding="13px 30px" text="Davom ettirish" />
       </div>
     </div>
   );

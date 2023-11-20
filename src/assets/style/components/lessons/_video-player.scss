@@ -68,6 +68,12 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
 }
 
 .time {
@@ -86,4 +92,10 @@
   letter-spacing: 1px;
   font-size: 14px;
   color: $white;
+}
+
+.volume__controls {
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }

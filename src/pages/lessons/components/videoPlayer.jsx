@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import {
   CirclePauseIcon,
@@ -5,12 +6,14 @@ import {
   FullScreen,
   MiniPauseIcon,
   MiniPlayIcon,
+  VolumeIcon,
 } from "@/assets/icons";
 
 const VideoPlayer = ({ tabs, activeTab, videoRef, handleToggle, toggle }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [controls, setControls] = useState("0");
   const [duration, setDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
 
   useEffect(() => {
     const videoCon = videoRef.current;
@@ -23,9 +26,18 @@ const VideoPlayer = ({ tabs, activeTab, videoRef, handleToggle, toggle }) => {
       setDuration(videoCon.duration);
     };
 
+    if (videoRef.current) {
+      videoRef.current.volume = volume;
+    }
+
     videoCon.addEventListener("timeupdate", timeUpdateHandler);
     videoCon.addEventListener("loadedmetadata", loadedMetaDataHandler);
-  }, []);
+  }, [videoRef, volume]);
+
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value;
+    setVolume(newVolume);
+  };
 
   const toggleFullScreen = () => {
     const element = document.getElementById("video");
@@ -71,10 +83,23 @@ const VideoPlayer = ({ tabs, activeTab, videoRef, handleToggle, toggle }) => {
         style={{ opacity: `${controls}` }}
       >
         <div className="time-indicators">
-          <div>
+          <div className="time-indicators__item">
             <div onClick={handleToggle}>
               {toggle ? <MiniPauseIcon /> : <MiniPlayIcon />}
             </div>
+
+            <div className="volume__controls">
+              <VolumeIcon />
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={handleVolumeChange}
+              />
+            </div>
+
             <div className="time">
               <span className="current-time">
                 {convertTime(Math.round(currentTime.toFixed(2)))}

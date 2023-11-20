@@ -21,13 +21,9 @@
       font-weight: 600;
       color: $darkBlue;
     }
-  
+
     &-count {
       color: $deepPurple;
     }
   }
-}
-
-:where(.css-dev-only-do-not-override-byeoj0).ant-progress .ant-progress-inner {
-  background-color: $light;
 }
