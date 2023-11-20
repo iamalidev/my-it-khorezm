@@ -41,7 +41,6 @@ const MemberModal = ({ setLock, isModalOpen, setIsModalOpen }) => {
           initialValues={{
             remember: true,
           }}
-          autoComplete="off"
         >
           <Form.Item
             hasFeedback

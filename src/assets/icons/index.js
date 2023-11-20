@@ -79,3 +79,4 @@ export { default as GradientArrowIcon } from "./gradientArrowIcon";
 export { default as ErrorIcon } from "./errorIcon";
 export { default as MiniPauseIcon } from "./miniPauseIcon";
 export { default as MiniPlayIcon } from "./miniPlayIcon";
+export { default as VolumeIcon } from "./volumeIcon";

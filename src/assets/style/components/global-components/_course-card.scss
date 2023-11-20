@@ -72,24 +72,3 @@
   }
 }
 
-:where(.css-dev-only-do-not-override-byeoj0).ant-progress-line {
-  margin-bottom: 0px;
-  margin-inline-end: 0px;
-}
-:where(.css-dev-only-do-not-override-byeoj0).ant-progress .ant-progress-bg {
-  border-radius: 5px;
-  background-color: $blue;
-}
-
-:where(.css-dev-only-do-not-override-byeoj0).ant-progress .ant-progress-inner {
-  border-radius: 5px;
-  background-color: $white;
-  border: 1px solid $white;
-}
-
-:where(
-    .css-dev-only-do-not-override-byeoj0
-  ).ant-progress.ant-progress-status-success
-  .ant-progress-bg {
-  background-color: $darkBlue;
-}
