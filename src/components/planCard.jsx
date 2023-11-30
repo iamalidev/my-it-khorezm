@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Avatar } from "antd";
 import { planData } from "@/utils/data";
 import { avatarImg } from "@/assets/images";
@@ -8,11 +8,9 @@ const PlanCard = () => {
   const [border, setBorder] = useState([]);
 
   useEffect(() => {
-    const randomColors = [
-      "plan-card border-yellow",
-      "plan-card border-green",
-      "plan-card border-dark__blue",
-    ].sort(() => 0.5 - Math.random());
+    const randomColors = ["#fec64f", "#166199", "#374557"].sort(
+      () => 0.5 - Math.random()
+    );
     setBorder(randomColors);
   }, []);
 
@@ -20,7 +18,13 @@ const PlanCard = () => {
     <>
       {planData.map((el) => {
         return (
-          <div className={border[el.id % border.length]} key={el.id}>
+          <div
+            style={{
+              borderLeft: `17px solid ${border[el.id % border.length]}`,
+            }}
+            className={`plan-card`}
+            key={el.id}
+          >
             <h1 className="plan-card__title">{el.title}</h1>
 
             <div className="plan-card__info">

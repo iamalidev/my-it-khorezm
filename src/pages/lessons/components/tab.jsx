@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { CircleLockIcon, PauseIcon, PlayIcon } from "@/assets/icons";
 
 const Tab = ({ tabs, setActiveTab, activeTab, handleToggle, toggle }) => {

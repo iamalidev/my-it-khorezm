@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Tabs } from "antd";
 import Information from "./video/information";
@@ -7,7 +8,7 @@ import ClosedFiles from "./video/closedFiles";
 import Files from "./video/files";
 import { TabLockIcon } from "@/assets/icons";
 
-export function VidStack() {
+export function VidStack({ setIsModalOpen, isModalOpen }) {
   const [lock, setLock] = useState(true);
 
   return (
@@ -32,7 +33,15 @@ export function VidStack() {
             }
             key="tab2"
           >
-            {lock == true ? <ClosedFiles setLock={setLock} /> : <Files />}
+            {lock == true ? (
+              <ClosedFiles
+                setIsModalOpen={setIsModalOpen}
+                isModalOpen={isModalOpen}
+                setLock={setLock}
+              />
+            ) : (
+              <Files />
+            )}
           </Tabs>
 
           <Tabs

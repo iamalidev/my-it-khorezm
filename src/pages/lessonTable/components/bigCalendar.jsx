@@ -2,15 +2,13 @@ import { useEffect, useState } from "react";
 import { GrayArrowIcon } from "@/assets/icons";
 
 const Calendar = () => {
-  const [feature, setFeature] = useState([]);
+  const [border, setBorder] = useState([]);
 
   useEffect(() => {
-    const randomColors = [
-      "big-modal border-yellow",
-      "big-modal border-green",
-      "big-modal border-dark__blue",
-    ].sort(() => 0.5 - Math.random());
-    setFeature(randomColors);
+    const randomColors = ["#fec64f", "#166199", "#374557"].sort(
+      () => 0.5 - Math.random()
+    );
+    setBorder(randomColors);
   }, []);
 
   const monthNames = [
@@ -181,7 +179,15 @@ const Calendar = () => {
             {ismodal.map((data, index) => {
               if (data.date === day.date.toDateString()) {
                 return (
-                  <div key={index} className={feature[index % feature.length]}>
+                  <div
+                    key={index}
+                    className="big-modal"
+                    style={{
+                      borderLeft: `17px solid ${
+                        border[index % border.length]
+                      }`,
+                    }}
+                  >
                     <p className="big-modal__item"> {data.title}</p>
                     <p className="big-modal__time"> {data.time}</p>
                     <p className="big-modal__item"> {data.task}</p>

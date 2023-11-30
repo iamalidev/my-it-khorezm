@@ -9,7 +9,7 @@ function CrudCard() {
       {crudInfo.map((el) => {
         return (
           <Link to="/lessons" key={el.id}>
-            <div className="course-card background-dark__blue">
+            <div className="course-card" style={{ backgroundColor: "#374557" }}>
               <span className="course-card__bg-img">{el.bgSvg}</span>
 
               <div className="course-card__main-entry">

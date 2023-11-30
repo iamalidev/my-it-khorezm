@@ -284,6 +284,8 @@ const Tests = () => {
     );
   };
 
+  console.log(activeTab);
+
   const activeTabDirection = (number) => {
     tabContainer.scrollLeft = activeTabButton.offsetLeft - number;
   };
@@ -338,7 +340,6 @@ const Tests = () => {
               });
               activeTabDirection(700);
             }}
-            disabled={activeButton === data[data.length - 1].id}
           >
             <BigBlueArrowIcon
               style={{
@@ -347,75 +348,82 @@ const Tests = () => {
             />
           </button>
         </div>
+        {activeTab >= 15 ? (
+          "results: 10/15"
+        ) : (
+          <div className="tab-content__container">
+            {data.map((button) =>
+              activeButton === button.id ? (
+                <>
+                  <div key={button.id} className="tab-sub__buttons">
+                    {button.tab.map((tab) => (
+                      <div
+                        key={tab.id}
+                        className={`sub-button ${
+                          activeTab === tab.id ? "active" : ""
+                        }`}
+                        onClick={() => handleTabClick(tab.id)}
+                      >
+                        {tab.id}-Savol
+                      </div>
+                    ))}
+                  </div>
 
-        <div className="tab-content__container">
-          {data.map((button) =>
-            activeButton === button.id ? (
-              <>
-                <div key={button.id} className="tab-sub__buttons">
-                  {button.tab.map((tab) => (
-                    <div
-                      key={tab.id}
-                      className={`sub-button ${
-                        activeTab === tab.id ? "active" : ""
-                      }`}
-                      onClick={() => handleTabClick(tab.id)}
-                    >
-                      {tab.id}-Savol
+                  <div className="tab__content">
+                    <div className="tab-question__wrapper">
+                      <p className="content__question">
+                        {
+                          button.tab.find((tab) => tab.id === activeTab)
+                            ?.question
+                        }{" "}
+                        ?
+                      </p>
+
+                      <div className="content__desk"></div>
                     </div>
-                  ))}
-                </div>
 
-                <div className="tab__content">
-                  <div className="tab-question__wrapper">
-                    <p className="content__question">
-                      {button.tab.find((tab) => tab.id === activeTab)?.question}{" "}
-                      ?
-                    </p>
-
-                    <div className="content__desk"></div>
-                  </div>
-
-                  <div className="content-variants__wrapper">
-                    {button.tab
-                      .find((tab) => tab.id === activeTab)
-                      ?.options.map((option, index) => (
-                        <button
-                          key={index}
-                          className="content__variant"
-                          onClick={() => handleOptionSelect(index)}
-                          style={{
-                            backgroundColor:
-                              selectedOption === index
-                                ? index ===
-                                  button.tab.find((tab) => tab.id === activeTab)
-                                    ?.answer
-                                  ? "#166199"
-                                  : "#FC6B57"
-                                : "white",
-                            color: selectedOption === index ? "#fff" : "#000",
-                          }}
-                        >
-                          {option}
-                          {selectedOption === index ? (
-                            index ===
-                            button.tab.find((tab) => tab.id === activeTab)
-                              ?.answer ? (
-                              <GreenTickIcon size="20px" color="#fff" />
+                    <div className="content-variants__wrapper">
+                      {button.tab
+                        .find((tab) => tab.id === activeTab)
+                        ?.options.map((option, index) => (
+                          <button
+                            key={index}
+                            className="content__variant"
+                            onClick={() => handleOptionSelect(index)}
+                            style={{
+                              backgroundColor:
+                                selectedOption === index
+                                  ? index ===
+                                    button.tab.find(
+                                      (tab) => tab.id === activeTab
+                                    )?.answer
+                                    ? "#166199"
+                                    : "#FC6B57"
+                                  : "white",
+                              color: selectedOption === index ? "#fff" : "#000",
+                            }}
+                          >
+                            {option}
+                            {selectedOption === index ? (
+                              index ===
+                              button.tab.find((tab) => tab.id === activeTab)
+                                ?.answer ? (
+                                <GreenTickIcon size="20px" color="#fff" />
+                              ) : (
+                                <ErrorIcon />
+                              )
                             ) : (
-                              <ErrorIcon />
-                            )
-                          ) : (
-                            <div className="content-variant__item"></div>
-                          )}
-                        </button>
-                      ))}
+                              <div className="content-variant__item"></div>
+                            )}
+                          </button>
+                        ))}
+                    </div>
                   </div>
-                </div>
-              </>
-            ) : null
-          )}
-        </div>
+                </>
+              ) : null
+            )}
+          </div>
+        )}
       </div>
       <div className="tab-bottom__content">
         <div className="timer__wrapper">
@@ -447,6 +455,7 @@ const Tests = () => {
           <button
             className="task-navigation__button"
             onClick={handleNextTaskTab}
+            disabled={activeTab === data[data.length - 1].id}
           >
             Next <GradientArrowIcon />
           </button>

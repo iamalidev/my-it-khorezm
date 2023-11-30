@@ -7,14 +7,14 @@ function NewCourseCard() {
     <>
       {courseInfo.map((el) => {
         return (
-          <div className="course-card" key={el.id}>
+          <div className="new-course__card" key={el.id}>
             <span className="course-card__bg-img">{el.bgSvg}</span>
 
             <div className="course-card__main-entry">
               <p>{el.title}</p>
             </div>
 
-            <div className="course-card__info">
+            <div className="new-course__card-info">
               <div className="course-card__info-date">
                 <WhiteCalendarIcon />
                 <p>{el.date}</p>
