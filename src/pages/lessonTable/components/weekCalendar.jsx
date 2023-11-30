@@ -8,11 +8,9 @@ const WeekCalendar = () => {
   const [feature, setFeature] = useState([]);
 
   useEffect(() => {
-    const randomColors = [
-      " background-orange",
-      " background-green",
-      " background-dark__blue",
-    ].sort(() => 0.5 - Math.random());
+    const randomColors = ["#fec64f", "#166199", "#374557"].sort(
+      () => 0.5 - Math.random()
+    );
     setFeature(randomColors);
   }, []);
 
@@ -119,9 +117,13 @@ const WeekCalendar = () => {
           return (
             <Tooltip key={id} title={`${modal.time}`}>
               <div
-                className={`week-calendar__modal ${
-                  feature[modal.id % feature.length]
-                } ${week.toLowerCase()}-${time.replace(":", "")}`}
+                style={{
+                  backgroundColor: `${feature[modal.id % feature.length]}`,
+                }}
+                className={`week-calendar__modal ${week.toLowerCase()}-${time.replace(
+                  ":",
+                  ""
+                )}`}
               >
                 <div className="week-calendar__modal-circle"></div>
                 <div className="week-calendar__modal-title">{title}</div>

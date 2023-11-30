@@ -1,125 +1,229 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
 import {
   CirclePauseIcon,
   CirclePlayIcon,
   FullScreen,
   MiniPauseIcon,
   MiniPlayIcon,
+  MuteIcon,
+  ReverseIcon,
   VolumeIcon,
 } from "@/assets/icons";
+import { useState } from "react";
+import { Divider, Select } from "antd";
+import DropdownApp from "./dropdown";
 
-const VideoPlayer = ({ tabs, activeTab, videoRef, handleToggle, toggle }) => {
+const VideoPlayer = ({
+  tabs,
+  activeTab,
+  videoRef,
+  handleToggle,
+  toggle,
+  isModalOpen,
+}) => {
+  const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [controls, setControls] = useState("0");
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
+  const [volume, setVolume] = useState(0.5);
+  const [scale, setScale] = useState(0);
+  const [value, setValue] = useState(1);
+  const [hover, setHover] = useState(false);
+  const [reverse, setReverse] = useState(false);
+  const { Option } = Select;
 
-  useEffect(() => {
-    const videoCon = videoRef.current;
+  const handleSelectChange = (value) => {
+    setValue(value);
+    videoRef.current.playbackRate = value;
+  };
 
-    const timeUpdateHandler = () => {
-      setCurrentTime(videoCon.currentTime);
-    };
-
-    const loadedMetaDataHandler = () => {
-      setDuration(videoCon.duration);
-    };
-
-    if (videoRef.current) {
-      videoRef.current.volume = volume;
-    }
-
-    videoCon.addEventListener("timeupdate", timeUpdateHandler);
-    videoCon.addEventListener("loadedmetadata", loadedMetaDataHandler);
-  }, [videoRef, volume]);
-
-  const handleVolumeChange = (e) => {
-    const newVolume = e.target.value;
+  const handleChange = (e) => {
+    const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
-  };
-
-  const toggleFullScreen = () => {
-    const element = document.getElementById("video");
-    const isFullScreen = document.fullscreenElement;
-    if (!isFullScreen) {
-      element.requestFullscreen();
+    if (videoRef.current) {
+      videoRef.current.volume = newVolume;
     }
   };
 
-  function convertTime(sec) {
-    var hours = Math.floor(sec / 3600);
-    hours >= 1 ? (sec = sec - hours * 3600) : (hours = "00");
-    var min = Math.floor(sec / 60);
-    min >= 1 ? (sec = sec - min * 60) : (min = "00");
-    sec < 1 ? (sec = "00") : void 0;
+  const handleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      videoRef.current.requestFullscreen();
+    }
+  };
 
-    min.toString().length == 1 ? (min = "0" + min) : void 0;
-    sec.toString().length == 1 ? (sec = "0" + sec) : void 0;
+  const handleTimeUpdate = () => {
+    const currentTime = videoRef.current.currentTime;
+    const duration = videoRef.current.duration;
+    const progressPercentage = (currentTime / duration) * 100;
+    setProgress(progressPercentage);
+    setCurrentTime(currentTime);
+    setDuration(duration);
+  };
 
-    return hours + ":" + min + ":" + sec;
-  }
+  const handleProgressBarClick = (e) => {
+    const progressBar = e.currentTarget;
+    const clickPosition = e.clientX - progressBar.getBoundingClientRect().left;
+    const progressBarWidth = progressBar.clientWidth;
+    const clickPercentage = (clickPosition / progressBarWidth) * 100;
+
+    if (clickPercentage <= progress) {
+      setProgress(clickPercentage);
+      const newTime = (clickPercentage / 100) * videoRef.current.duration;
+      videoRef.current.currentTime = newTime;
+    }
+  };
+
+  document.addEventListener("keydown", (el) => {
+    if (el.keyCode == 70) {
+      handleFullScreen();
+    } else if (el.keyCode == 82) {
+      if (videoRef.current) {
+        videoRef.current.currentTime -= 1;
+        setReverse(true);
+
+        setTimeout(() => {
+          setReverse(false);
+        }, 1500);
+      }
+    }
+  });
+
+  const convertTime = (seconds) => {
+    return `${Math.floor(seconds / 3600)}:${Math.floor(
+      (seconds % 3600) / 60
+    )}:${seconds % 60}`;
+  };
+
+  window.addEventListener("keydown", function (e) {
+    if (e.key === " " || e.code === 32) {
+      e.preventDefault();
+      handleToggle();
+    }
+  });
 
   return (
     <div
-      className="video-container"
-      onMouseEnter={() => setControls("10")}
-      onMouseLeave={() => setControls("0")}
+      className="player__container"
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
     >
       <video
-        id="video"
-        className="video-player"
+        className="video__player"
+        onTimeUpdate={handleTimeUpdate}
         src={tabs[activeTab].content}
         ref={videoRef}
-        style={{ width: "1008px" }}
-      ></video>
-      <div className="controls" style={{ opacity: `${controls}` }}>
-        <div className="control-button" onClick={handleToggle}>
-          {toggle ? <CirclePauseIcon /> : <CirclePlayIcon />}
-        </div>
-      </div>
-      <div
-        className="progress-bar-container"
-        style={{ opacity: `${controls}` }}
+        type="video/mp4"
       >
-        <div className="time-indicators">
-          <div className="time-indicators__item">
-            <div onClick={handleToggle}>
+        Your browser does not support the video tag.
+      </video>
+      <div className="player__controls" style={{ opacity: `${hover ? 1 : 0}` }}>
+        <DropdownApp />
+        <div className="main__control">
+          {reverse ? (
+            <ReverseIcon />
+          ) : toggle ? (
+            <CirclePauseIcon
+              style={{ cursor: "pointer" }}
+              onClick={handleToggle}
+            />
+          ) : (
+            <CirclePlayIcon
+              style={{ cursor: "pointer" }}
+              onClick={handleToggle}
+            />
+          )}
+        </div>
+        <div
+          className="player__navigations"
+          style={{ transform: `translateY(${hover ? 0 : 200}px)` }}
+        >
+          <div className="navigation__left">
+            <button
+              className="navigation__button"
+              style={{ paddingInline: "10px" }}
+              onClick={handleToggle}
+            >
               {toggle ? <MiniPauseIcon /> : <MiniPlayIcon />}
-            </div>
+            </button>
 
-            <div className="volume__controls">
-              <VolumeIcon />
+            <div className="navigation__data">
+              {convertTime(Math.round(currentTime.toFixed(2)))} /{" "}
+              {convertTime(Math.round(duration.toFixed(2)))}
+            </div>
+          </div>
+
+          <div className="navigation__right">
+            <div
+              className="volume__control"
+              onMouseEnter={() => setScale(1)}
+              onMouseLeave={() => setScale(0)}
+            >
+              <button
+                className="navigation__button volume__button"
+                style={{
+                  transform: `translateX(${scale == 1 ? 0 : 130}px)`,
+                  transition: "0.3s",
+                  zIndex: "10",
+                }}
+                onClick={() => {
+                  volume == 0 ? setVolume(0.5) : setVolume(0);
+                }}
+              >
+                {volume == 0 ? <MuteIcon /> : <VolumeIcon />}
+              </button>
+
               <input
+                style={{ transform: `scaleX(${scale})`, transition: "0.2s" }}
                 type="range"
                 min="0"
                 max="1"
                 step="0.1"
                 value={volume}
-                onChange={handleVolumeChange}
+                onChange={handleChange}
               />
             </div>
 
-            <div className="time">
-              <span className="current-time">
-                {convertTime(Math.round(currentTime.toFixed(2)))}
-              </span>
-              <p className="time-slash">/</p>
-              <span className="duration">
-                {convertTime(Math.round(duration.toFixed(2)))}
-              </span>
+            <Select
+              placement="topLeft"
+              suffixIcon={null}
+              onChange={handleSelectChange}
+              value={value}
+              style={{ width: "63px" }}
+              dropdownRender={(menu) => (
+                <div>
+                  {menu}
+                  <Divider style={{ margin: "0" }} />
+                </div>
+              )}
+            >
+              {[0.5, 1, 1.5, 2].map((item) => (
+                <Option key={item} className="speed__option">
+                  {item}
+                </Option>
+              ))}
+            </Select>
+
+            <button className="navigation__button" onClick={handleFullScreen}>
+              <FullScreen />
+            </button>
+          </div>
+        </div>
+        <div>
+          <div
+            className="progress__bar"
+            onClick={handleProgressBarClick}
+            style={{ transform: `translateY(${hover ? 0 : 200}px)` }}
+          >
+            <div className="progress__thumb" style={{ width: `${progress}%` }}>
+              <div
+                className="progress__item"
+                style={{ right: `${currentTime == 0 ? "-17px" : "0px"}` }}
+              ></div>
             </div>
           </div>
-
-          <button onClick={toggleFullScreen} className="other-settings">
-            <FullScreen />
-          </button>
-        </div>
-        <div className="progress-bar">
-          <div
-            className="progress-bar-fill"
-            style={{ width: `${(currentTime / duration) * 100}%` }}
-          ></div>
         </div>
       </div>
     </div>

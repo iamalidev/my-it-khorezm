@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import MemberModal from "../memberModal";
 import {
   BgBookIcon,
@@ -7,8 +7,7 @@ import {
   CrownIcon,
 } from "@/assets/icons";
 
-function ClosedFiles({ setLock }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
 
   const showModal = () => {
     setIsModalOpen(true);

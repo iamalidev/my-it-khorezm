@@ -9,6 +9,7 @@ import VideoPlayer from "./components/videoPlayer";
 const Lessons = () => {
   const [toggle, setToggle] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRef = useRef(null);
   let process = 20;
 
@@ -24,7 +25,8 @@ const Lessons = () => {
       title: "Ishni Boshlash",
       duration: "1:00",
       condition: false,
-      content: "https://assets.codepen.io/6093409/hubspot-video-example.mp4",
+      content:
+        "https://stream.mux.com/VZtzUzGRv02OhRnZCxcNg49OilvolTqdnFLEqBsTwaxU/low.mp4",
     },
     {
       title: "Asboblar",
@@ -43,12 +45,8 @@ const Lessons = () => {
   };
 
   const handleToggle = () => {
+    toggle ? pauseVideo() : playVideo();
     setToggle(!toggle);
-    if (toggle == true) {
-      pauseVideo();
-    } else {
-      playVideo();
-    }
   };
 
   return (
@@ -63,8 +61,9 @@ const Lessons = () => {
             handleToggle={handleToggle}
             toggle={toggle}
             videoRef={videoRef}
+            isModalOpen={isModalOpen}
           />
-          <VidStack />
+          <VidStack setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
         </div>
 
         <div className="accordion__wrapper">

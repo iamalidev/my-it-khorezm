@@ -10,30 +10,6 @@ body {
   margin: 0 auto;
 }
 
-.border-yellow {
-  border-left: 17px solid $orange;
-}
-
-.border-dark__blue {
-  border-left: 17px solid $darkBlue;
-}
-
-.border-green {
-  border-left: 17px solid $blue;
-}
-
-.background-dark__blue {
-  background-color: $darkBlue;
-}
-
-.background-green {
-  background-color: $blue;
-}
-
-.background-orange {
-  background-color: $orange;
-}
-
 .color-dark__blue {
   color: $darkBlue;
 }
@@ -126,4 +102,9 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #0f4f80;
+}
+
+
+video::-webkit-media-controls {
+  display: none !important;
 }
