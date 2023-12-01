@@ -11,8 +11,8 @@ import {
     TickIcon,
     VideoIcon,
     ZipIcon,
-} from "@/assets/icons";
-import { avatarImg } from "@/assets/images";
+} from "@/assets/icons/index";
+import { avatarImg } from "@/assets/images/index";
 
 export const planData = [
     {

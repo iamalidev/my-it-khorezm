@@ -6,9 +6,9 @@ import {
     MiniPauseIcon,
     MiniPlayIcon,
     VolumeIcon,
-} from "@/assets/icons";
+} from "@/assets/icons/index";
 
-const VideoPlayer = ({ tabs, activeTab, videoRef, handleToggle, toggle }) => {
+function VideoPlayer({ tabs, activeTab, videoRef, handleToggle, toggle }) {
     const [currentTime, setCurrentTime] = useState(0);
     const [controls, setControls] = useState("0");
     const [duration, setDuration] = useState(0);
@@ -128,6 +128,6 @@ const VideoPlayer = ({ tabs, activeTab, videoRef, handleToggle, toggle }) => {
             </div>
         </div>
     );
-};
+}
 
 export default VideoPlayer;

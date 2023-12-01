@@ -3,7 +3,7 @@ import { Tabs } from "antd";
 import { Information, Homework, Test, ClosedFiles, Files } from "./video/index";
 import { TabLockIcon } from "@/assets/icons";
 
-const VidStack = () => {
+function VidStack() {
     const [lock, setLock] = useState(true);
     return (
         <div className='video'>
@@ -73,6 +73,6 @@ const VidStack = () => {
             </div>
         </div>
     );
-};
+}
 
 export default VidStack;

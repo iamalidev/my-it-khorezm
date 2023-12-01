@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { DarkBlueArrowIcon } from "@/assets/icons";
 
-const DetailedBtn = ({ link }) => {
+function DetailedBtn({ link }) {
     return (
         <Link to={link}>
             <button className='detailed__btn'>
@@ -9,6 +9,6 @@ const DetailedBtn = ({ link }) => {
             </button>
         </Link>
     );
-};
+}
 
 export default DetailedBtn;

@@ -1,91 +1,273 @@
-import { useRef, useState } from "react";
-import { Progress } from "antd";
-import { SmallTitle } from "@/components/index";
-import { Accordion, VidStack, VideoPlayer, Tab } from "./components/index";
-import { tabs } from "@/utils/data";
+import {
+    BigBlueArrowIcon,
+    ErrorIcon,
+    GradientArrowIcon,
+    GreenTickIcon,
+} from "@/assets/icons";
+import { testData } from "@/utils/data";
+import { useState } from "react";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-const Lessons = () => {
-    const [toggle, setToggle] = useState(false);
-    const [activeTab, setActiveTab] = useState(0);
-    const videoRef = useRef(null);
-    let process = 20;
+const Tests = () => {
+    const activeTabButton = document.querySelector(".lesson-button__active");
+    const tabContainer = document.querySelector(".lesson-buttons__wrapper");
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [activeButton, setActiveButton] = useState(1);
+    const [activeTab, setActiveTab] = useState(1);
+    const [key, setKey] = useState(0);
 
-    const playVideo = () => {
-        videoRef.current.play();
+    const handleOptionSelect = (optionIndex) => {
+        setSelectedOption(optionIndex);
+        setTimeout(handleNextTaskTab, 1000);
     };
 
-    const pauseVideo = () => {
-        videoRef.current.pause();
+    const handleButtonClick = (buttonId) => {
+        setActiveButton(buttonId);
+        setActiveTab(1);
     };
 
-    const handleToggle = () => {
-        setToggle(!toggle);
-        if (toggle == true) {
-            pauseVideo();
-        } else {
-            playVideo();
-        }
+    const handleTabClick = (tabId) => {
+        setActiveTab(tabId);
     };
+
+    const handleNextTaskTab = () => {
+        data.map((el) =>
+            el.tab.map((el) => {
+                if (activeTab < el.id) {
+                    setActiveTab(activeTab + 1);
+                    setSelectedOption(null);
+                }
+            })
+        );
+    };
+
+    const handlePrevTaskTab = () => {
+        data.map((el) =>
+            el.tab.map((el) => {
+                if (activeTab > el.id) {
+                    setActiveTab(activeTab - 1);
+                }
+            })
+        );
+    };
+
+    const activeTabDirection = (number) => {
+        tabContainer.scrollLeft = activeTabButton.offsetLeft - number;
+    };
+
+    const children = ({ remainingTime }) => (
+        <p className='timer__second' role='timer' aria-live='assertive'>
+            {remainingTime}
+        </p>
+    );
 
     return (
         <>
-            <div style={{ display: "flex", gap: "64px" }}>
-                <div className='tab-content'>
-                    <p className='tab__title'>Web va Grafik dizayn</p>
+            <div className='tab__container'>
+                <div className='lesson-content__wrapper'>
+                    <button
+                        className='lesson-navigation__button'
+                        onClick={() => {
+                            testData.map((el) => {
+                                if (activeButton > el.id) {
+                                    setActiveButton(activeButton - 1);
+                                }
+                            });
+                            activeTabDirection(1200);
+                        }}
+                        disabled={activeButton === 1}
+                    >
+                        <BigBlueArrowIcon />
+                    </button>
+                    <div className='lesson-buttons__wrapper'>
+                        {data.map((button) => (
+                            <button
+                                key={button.id}
+                                className={
+                                    activeButton === button.id &&
+                                    !button.disabled
+                                        ? "lesson-button__active"
+                                        : "lesson-button"
+                                }
+                                onClick={() => handleButtonClick(button.id)}
+                                disabled={button.disabled}
+                            >
+                                {button.id}-Dars
+                            </button>
+                        ))}
+                    </div>
+                    <button
+                        className='lesson-navigation__button'
+                        onClick={() => {
+                            data.map((el) => {
+                                if (activeButton < el.id) {
+                                    setActiveButton(activeButton + 1);
+                                }
+                            });
+                            activeTabDirection(700);
+                        }}
+                    >
+                        <BigBlueArrowIcon
+                            style={{
+                                transform:
+                                    "rotateZ(180deg) translateY(-3px) translateX(-2px)",
+                            }}
+                        />
+                    </button>
+                </div>
+                {activeTab >= 15 ? (
+                    "results: 10/15"
+                ) : (
+                    <div className='tab-content__container'>
+                        {data.map((button) =>
+                            activeButton === button.id ? (
+                                <>
+                                    <div
+                                        key={button.id}
+                                        className='tab-sub__buttons'
+                                    >
+                                        {button.tab.map((tab) => (
+                                            <div
+                                                key={tab.id}
+                                                className={`sub-button ${
+                                                    activeTab === tab.id
+                                                        ? "active"
+                                                        : ""
+                                                }`}
+                                                onClick={() =>
+                                                    handleTabClick(tab.id)
+                                                }
+                                            >
+                                                {tab.id}-Savol
+                                            </div>
+                                        ))}
+                                    </div>
 
-                    <VideoPlayer
-                        tabs={tabs}
-                        activeTab={activeTab}
-                        handleToggle={handleToggle}
-                        toggle={toggle}
-                        videoRef={videoRef}
-                    />
-                    <VidStack />
+                                    <div className='tab__content'>
+                                        <div className='tab-question__wrapper'>
+                                            <p className='content__question'>
+                                                {
+                                                    button.tab.find(
+                                                        (tab) =>
+                                                            tab.id === activeTab
+                                                    )?.question
+                                                }{" "}
+                                                ?
+                                            </p>
+
+                                            <div className='content__desk'></div>
+                                        </div>
+
+                                        <div className='content-variants__wrapper'>
+                                            {button.tab
+                                                .find(
+                                                    (tab) =>
+                                                        tab.id === activeTab
+                                                )
+                                                ?.options.map(
+                                                    (option, index) => (
+                                                        <button
+                                                            key={index}
+                                                            className='content__variant'
+                                                            onClick={() =>
+                                                                handleOptionSelect(
+                                                                    index
+                                                                )
+                                                            }
+                                                            style={{
+                                                                backgroundColor:
+                                                                    selectedOption ===
+                                                                    index
+                                                                        ? index ===
+                                                                          button.tab.find(
+                                                                              (
+                                                                                  tab
+                                                                              ) =>
+                                                                                  tab.id ===
+                                                                                  activeTab
+                                                                          )
+                                                                              ?.answer
+                                                                            ? "#166199"
+                                                                            : "#FC6B57"
+                                                                        : "white",
+                                                                color:
+                                                                    selectedOption ===
+                                                                    index
+                                                                        ? "#fff"
+                                                                        : "#000",
+                                                            }}
+                                                        >
+                                                            {option}
+                                                            {selectedOption ===
+                                                            index ? (
+                                                                index ===
+                                                                button.tab.find(
+                                                                    (tab) =>
+                                                                        tab.id ===
+                                                                        activeTab
+                                                                )?.answer ? (
+                                                                    <GreenTickIcon
+                                                                        size='20px'
+                                                                        color='#fff'
+                                                                    />
+                                                                ) : (
+                                                                    <ErrorIcon />
+                                                                )
+                                                            ) : (
+                                                                <div className='content-variant__item'></div>
+                                                            )}
+                                                        </button>
+                                                    )
+                                                )}
+                                        </div>
+                                    </div>
+                                </>
+                            ) : null
+                        )}
+                    </div>
+                )}
+            </div>
+            <div className='tab-bottom__content'>
+                <div className='timer__wrapper'>
+                    <CountdownCircleTimer
+                        size={100}
+                        key={key}
+                        isPlaying
+                        duration={10}
+                        colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+                        colorsTime={[7, 5, 2, 0]}
+                        onComplete={() => {
+                            setKey((prevKey) => prevKey + 1);
+                            handleNextTaskTab();
+                        }}
+                    >
+                        {children}
+                    </CountdownCircleTimer>
+
+                    <p className='timer__info'>Tugash vaqti</p>
                 </div>
 
-                <div className='accordion__wrapper'>
-                    <div className='accordion-process'>
-                        <SmallTitle text='Jarayon' />
-                        <Progress
-                            className='accordion_item'
-                            showInfo={false}
-                            strokeColor='#166199'
-                            strokeWidth={16}
-                            percent={process}
-                            size={[390, 16]}
-                        />
-
-                        <div className='accordion-process__bottom'>
-                            <h2 className='accordion-process__bottom-text'>
-                                Web va Grafik dizayn
-                            </h2>
-
-                            <p className='accordion-process__bottom-count'>
-                                {process >= 100 ? "10" : process / 1}/110
-                            </p>
-                        </div>
-                    </div>
-
-                    <Accordion
-                        title={"Video Kurslar"}
-                        content={
-                            <Tab
-                                handleToggle={handleToggle}
-                                toggle={toggle}
-                                tabs={tabs}
-                                activeTab={activeTab}
-                                setActiveTab={setActiveTab}
-                            />
-                        }
-                    />
-
-                    <Accordion title={"Audiolar"} content={"Nothing"} />
-                    <Accordion title={"Modullar"} content={"Nothing"} />
-                    <Accordion title={"Viktorina"} content={"Nothing"} />
+                <div className='task-navigation__wrapper'>
+                    <button
+                        className='task-navigation__button'
+                        onClick={handlePrevTaskTab}
+                    >
+                        <GradientArrowIcon
+                            style={{ transform: "rotate(180deg)" }}
+                        />{" "}
+                        Prev
+                    </button>
+                    <button
+                        className='task-navigation__button'
+                        onClick={handleNextTaskTab}
+                        disabled={activeTab === data[data.length - 1].id}
+                    >
+                        Next <GradientArrowIcon />
+                    </button>
                 </div>
             </div>
         </>
     );
 };
 
-export default Lessons;
+export default Tests;
