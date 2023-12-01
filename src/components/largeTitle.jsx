@@ -1,5 +1,5 @@
-function LargeTitle({ text }) {
-  return <p className="large-title">{text}</p>;
-}
+const LargeTitle = ({ text }) => {
+    return <p className='large-title'>{text}</p>;
+};
 
 export default LargeTitle;

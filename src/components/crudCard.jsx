@@ -16,43 +16,47 @@ function CrudCard() {
                 <p>{el.title}</p>
               </div>
 
-              <div className="course-card__info">
-                <div className="course-card__info-date">
-                  <WhiteCalendarIcon />
-                  <p>{el.date}</p>
-                </div>
+                            <div className='course-card__info'>
+                                <div className='course-card__info-date'>
+                                    <WhiteCalendarIcon />
+                                    <p>{el.date}</p>
+                                </div>
 
-                <div className="course-card__info-date">
-                  <ClockIcon />
-                  <p>{el.time}</p>
-                </div>
-              </div>
+                                <div className='course-card__info-date'>
+                                    <ClockIcon />
+                                    <p>{el.time}</p>
+                                </div>
+                            </div>
 
-              <Progress
-                percent={el.progress}
-                size={[432, 18]}
-                showInfo={false}
-              />
+                            <Progress
+                                percent={el.progress}
+                                size={[432, 18]}
+                                showInfo={false}
+                            />
 
-              <div className="course-card__informant">
-                <div className="course-card__informant-inner">
-                  <CircleCheckIcon />
-                  <p>Tugallangan</p>
-                </div>
+                            <div className='course-card__informant'>
+                                <div className='course-card__informant-inner'>
+                                    <CircleCheckIcon />
+                                    <p>Tugallangan</p>
+                                </div>
 
-                <p>{}</p>
-              </div>
+                                <p>{}</p>
+                            </div>
 
-              <div className="course-card__info-teacher">
-                <Avatar shape="square" size={35} src={el.teacherImg} />
-                <p>{el.teacher}</p>
-              </div>
-            </div>
-          </Link>
-        );
-      })}
-    </>
-  );
+                            <div className='course-card__info-teacher'>
+                                <Avatar
+                                    shape='square'
+                                    size={35}
+                                    src={el.teacherImg}
+                                />
+                                <p>{el.teacher}</p>
+                            </div>
+                        </div>
+                    </Link>
+                );
+            })}
+        </>
+    );
 }
 
 export default CrudCard;
