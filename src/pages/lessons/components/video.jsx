@@ -4,7 +4,7 @@ import { Tabs } from "antd";
 import { Information, Homework, Test, ClosedFiles, Files } from "./video/index";
 import { TabLockIcon } from "@/assets/icons";
 
-export function VidStack() {
+export function VidStack({ setIsModalOpen, isModalOpen }) {
   const [lock, setLock] = useState(true);
 
   return (
@@ -29,7 +29,15 @@ export function VidStack() {
             }
             key="tab2"
           >
-            {lock == true ? <ClosedFiles setLock={setLock} /> : <Files />}
+            {lock == true ? (
+              <ClosedFiles
+                setIsModalOpen={setIsModalOpen}
+                isModalOpen={isModalOpen}
+                setLock={setLock}
+              />
+            ) : (
+              <Files />
+            )}
           </Tabs>
 
                     <Tabs

@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
 import { DarkBlueArrowIcon } from "@/assets/icons";
 
-function DetailedBtn({link}) {
+function DetailedBtn({ link }) {
   return (
-    <Link to={link}>
-      <button className="detailed__btn">
-        Batafsil Jadval <DarkBlueArrowIcon />
-      </button>
+    <Link className="detailed__btn" to={link}>
+      Batafsil Jadval <DarkBlueArrowIcon />
     </Link>
   );
 }

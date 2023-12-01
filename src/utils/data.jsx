@@ -3,14 +3,15 @@ import {
   BgLampIcon,
   BgTickIcon,
   BookmarkIcon,
-  CompletedIcon,
   CourseCardBg,
   GreenPentulIcon,
   LampIcon,
-  PdfIcon,
   TickIcon,
+  
   VideoIcon,
   ZipIcon,
+  CompletedIcon,
+  PdfIcon,
 } from "@/assets/icons";
 import { avatarImg } from "@/assets/images";
 
