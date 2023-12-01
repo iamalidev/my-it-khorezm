@@ -1,18 +1,18 @@
 import {
-    BgBookmarkIcon,
-    BgLampIcon,
-    BgTickIcon,
-    BookmarkIcon,
-    CompletedIcon,
-    CourseCardBg,
-    GreenPentulIcon,
-    LampIcon,
-    PdfIcon,
-    TickIcon,
-    VideoIcon,
-    ZipIcon,
-} from "@/assets/icons/index";
-import { avatarImg } from "@/assets/images/index";
+  BgBookmarkIcon,
+  BgLampIcon,
+  BgTickIcon,
+  BookmarkIcon,
+  CompletedIcon,
+  CourseCardBg,
+  GreenPentulIcon,
+  LampIcon,
+  PdfIcon,
+  TickIcon,
+  VideoIcon,
+  ZipIcon,
+} from "@/assets/icons";
+import { avatarImg } from "@/assets/images";
 
 export const planData = [
     {

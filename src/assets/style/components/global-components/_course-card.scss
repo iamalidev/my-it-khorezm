@@ -1,10 +1,13 @@
 .course-card {
+  overflow: hidden;
   position: relative;
   display: flex;
   justify-content: center;
   flex-direction: column;
   border-radius: 16px;
   padding: 24px;
+  max-width: 486px;
+  width: 100%;
   background-color: $blue;
 
   &__wrapper {
@@ -34,7 +37,7 @@
 
   &__info {
     display: flex;
-    gap: 56px;
+    justify-content: space-between;
     margin-block: 20px 26px;
 
     &-date,
@@ -72,3 +75,21 @@
   }
 }
 
+.new-course__card {
+  max-width: max-content;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 24px;
+  background-color: $blue;
+
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 56px;
+    margin-block: 20px 26px;
+  }
+}

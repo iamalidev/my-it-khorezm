@@ -1,38 +1,36 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { Tabs } from "antd";
 import { Information, Homework, Test, ClosedFiles, Files } from "./video/index";
 import { TabLockIcon } from "@/assets/icons";
 
-function VidStack() {
-    const [lock, setLock] = useState(true);
-    return (
-        <div className='video'>
-            <div className='tab-box'>
-                <Tabs className='tab' defaultActiveKey='tab1'>
-                    <Tabs tab={<span>Malumotlar</span>} key='tab1'>
-                        <Information />
-                    </Tabs>
+export function VidStack() {
+  const [lock, setLock] = useState(true);
 
-                    <Tabs
-                        tab={
-                            <span className='tab-guide'>
-                                {lock == true ? (
-                                    <>
-                                        Fayllar <TabLockIcon />
-                                    </>
-                                ) : (
-                                    <>Fayllar</>
-                                )}
-                            </span>
-                        }
-                        key='tab2'
-                    >
-                        {lock == true ? (
-                            <ClosedFiles setLock={setLock} />
-                        ) : (
-                            <Files />
-                        )}
-                    </Tabs>
+  return (
+    <div className="video">
+      <div className="tab-box">
+        <Tabs className="tab" defaultActiveKey="tab1">
+          <Tabs tab={<span>Malumotlar</span>} key="tab1">
+            <Information />
+          </Tabs>
+
+          <Tabs
+            tab={
+              <span className="tab-guide">
+                {lock == true ? (
+                  <>
+                    Fayllar <TabLockIcon />
+                  </>
+                ) : (
+                  <>Fayllar</>
+                )}
+              </span>
+            }
+            key="tab2"
+          >
+            {lock == true ? <ClosedFiles setLock={setLock} /> : <Files />}
+          </Tabs>
 
                     <Tabs
                         tab={

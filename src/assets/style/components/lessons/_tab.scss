@@ -26,3 +26,8 @@
   align-items: center;
   gap: 16px;
 }
+
+.ant-tabs-content {
+  max-width: 900px !important;
+  width: 100% !important;
+}

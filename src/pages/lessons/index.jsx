@@ -1,162 +1,71 @@
-import {
-    BigBlueArrowIcon,
-    ErrorIcon,
-    GradientArrowIcon,
-    GreenTickIcon,
-} from "@/assets/icons";
-import { testData } from "@/utils/data";
-import { useState } from "react";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { useRef, useState } from "react";
+import { Progress } from "antd";
+import Accordion from "./components/accordion";
+import { VidStack } from "./components/video";
+import SmallTitle from "@/components/smallTitle";
+import Tab from "./components/tab";
+import VideoPlayer from "./components/videoPlayer";
 
-const Tests = () => {
-    const activeTabButton = document.querySelector(".lesson-button__active");
-    const tabContainer = document.querySelector(".lesson-buttons__wrapper");
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [activeButton, setActiveButton] = useState(1);
-    const [activeTab, setActiveTab] = useState(1);
-    const [key, setKey] = useState(0);
+const Lessons = () => {
+  const [toggle, setToggle] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
+  const videoRef = useRef(null);
+  let process = 20;
 
-    const handleOptionSelect = (optionIndex) => {
-        setSelectedOption(optionIndex);
-        setTimeout(handleNextTaskTab, 1000);
-    };
+  const tabs = [
+    {
+      title: "Kirish",
+      duration: "1:00",
+      condition: false,
+      content:
+        "https://storage.googleapis.com/web-dev-assets/video-and-source-tags/chrome.mp4",
+    },
+    {
+      title: "Ishni Boshlash",
+      duration: "1:00",
+      condition: false,
+      content: "https://assets.codepen.io/6093409/hubspot-video-example.mp4",
+    },
+    {
+      title: "Asboblar",
+      duration: "1:00",
+      condition: true,
+      content: "https://media-files.vidstack.io/720p.mp4",
+    },
+  ];
 
-    const handleButtonClick = (buttonId) => {
-        setActiveButton(buttonId);
-        setActiveTab(1);
-    };
+  const playVideo = () => {
+    videoRef.current.play();
+  };
 
-    const handleTabClick = (tabId) => {
-        setActiveTab(tabId);
-    };
+  const pauseVideo = () => {
+    videoRef.current.pause();
+  };
 
-    const handleNextTaskTab = () => {
-        data.map((el) =>
-            el.tab.map((el) => {
-                if (activeTab < el.id) {
-                    setActiveTab(activeTab + 1);
-                    setSelectedOption(null);
-                }
-            })
-        );
-    };
+  const handleToggle = () => {
+    setToggle(!toggle);
+    if (toggle == true) {
+      pauseVideo();
+    } else {
+      playVideo();
+    }
+  };
 
-    const handlePrevTaskTab = () => {
-        data.map((el) =>
-            el.tab.map((el) => {
-                if (activeTab > el.id) {
-                    setActiveTab(activeTab - 1);
-                }
-            })
-        );
-    };
+  return (
+    <>
+      <div style={{ display: "flex", gap: "64px" }}>
+        <div className="tab-content">
+          <p className="tab__title">Web va Grafik dizayn</p>
 
-    const activeTabDirection = (number) => {
-        tabContainer.scrollLeft = activeTabButton.offsetLeft - number;
-    };
-
-    const children = ({ remainingTime }) => (
-        <p className='timer__second' role='timer' aria-live='assertive'>
-            {remainingTime}
-        </p>
-    );
-
-    return (
-        <>
-            <div className='tab__container'>
-                <div className='lesson-content__wrapper'>
-                    <button
-                        className='lesson-navigation__button'
-                        onClick={() => {
-                            testData.map((el) => {
-                                if (activeButton > el.id) {
-                                    setActiveButton(activeButton - 1);
-                                }
-                            });
-                            activeTabDirection(1200);
-                        }}
-                        disabled={activeButton === 1}
-                    >
-                        <BigBlueArrowIcon />
-                    </button>
-                    <div className='lesson-buttons__wrapper'>
-                        {data.map((button) => (
-                            <button
-                                key={button.id}
-                                className={
-                                    activeButton === button.id &&
-                                    !button.disabled
-                                        ? "lesson-button__active"
-                                        : "lesson-button"
-                                }
-                                onClick={() => handleButtonClick(button.id)}
-                                disabled={button.disabled}
-                            >
-                                {button.id}-Dars
-                            </button>
-                        ))}
-                    </div>
-                    <button
-                        className='lesson-navigation__button'
-                        onClick={() => {
-                            data.map((el) => {
-                                if (activeButton < el.id) {
-                                    setActiveButton(activeButton + 1);
-                                }
-                            });
-                            activeTabDirection(700);
-                        }}
-                    >
-                        <BigBlueArrowIcon
-                            style={{
-                                transform:
-                                    "rotateZ(180deg) translateY(-3px) translateX(-2px)",
-                            }}
-                        />
-                    </button>
-                </div>
-                {activeTab >= 15 ? (
-                    "results: 10/15"
-                ) : (
-                    <div className='tab-content__container'>
-                        {data.map((button) =>
-                            activeButton === button.id ? (
-                                <>
-                                    <div
-                                        key={button.id}
-                                        className='tab-sub__buttons'
-                                    >
-                                        {button.tab.map((tab) => (
-                                            <div
-                                                key={tab.id}
-                                                className={`sub-button ${
-                                                    activeTab === tab.id
-                                                        ? "active"
-                                                        : ""
-                                                }`}
-                                                onClick={() =>
-                                                    handleTabClick(tab.id)
-                                                }
-                                            >
-                                                {tab.id}-Savol
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className='tab__content'>
-                                        <div className='tab-question__wrapper'>
-                                            <p className='content__question'>
-                                                {
-                                                    button.tab.find(
-                                                        (tab) =>
-                                                            tab.id === activeTab
-                                                    )?.question
-                                                }{" "}
-                                                ?
-                                            </p>
-
-                                            <div className='content__desk'></div>
-                                        </div>
+          <VideoPlayer
+            tabs={tabs}
+            activeTab={activeTab}
+            handleToggle={handleToggle}
+            toggle={toggle}
+            videoRef={videoRef}
+          />
+          <VidStack />
+        </div>
 
                                         <div className='content-variants__wrapper'>
                                             {button.tab

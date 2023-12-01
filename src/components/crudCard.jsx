@@ -4,22 +4,17 @@ import { CircleCheckIcon, ClockIcon, WhiteCalendarIcon } from "@/assets/icons";
 import { crudInfo } from "@/utils/data";
 
 function CrudCard() {
-    return (
-        <>
-            {crudInfo.map((el) => {
-                return (
-                    <Link to='/lessons' key={el.id}>
-                        <div
-                            className='course-card'
-                            style={{ backgroundColor: "#374557" }}
-                        >
-                            <span className='course-card__bg-img'>
-                                {el.bgSvg}
-                            </span>
+  return (
+    <>
+      {crudInfo.map((el) => {
+        return (
+          <Link to="/lessons" key={el.id}>
+            <div className="course-card background-dark__blue">
+              <span className="course-card__bg-img">{el.bgSvg}</span>
 
-                            <div className='course-card__main-entry'>
-                                <p>{el.title}</p>
-                            </div>
+              <div className="course-card__main-entry">
+                <p>{el.title}</p>
+              </div>
 
                             <div className='course-card__info'>
                                 <div className='course-card__info-date'>
