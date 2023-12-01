@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import "./assets/style/main.scss";
-import UserProvider from "./context/userContext";
-import CheckUser from "./pages/check";
+import UserProvider from "@/context/userContext";
+import CheckUser from "@/pages/check";
+import "@/assets/style/main.scss";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <UserProvider>
-      <CheckUser />
-    </UserProvider>
-  </BrowserRouter>
+    <BrowserRouter>
+        <UserProvider>
+            <CheckUser />
+        </UserProvider>
+    </BrowserRouter>
 );

@@ -1,21 +1,23 @@
-import Chart from "./components/chart";
-import CoursesCompleted from "./components/coursesCompleted";
-import CurrentCourses from "./components/currentCourses";
-import ProfilePart from "./components/profilePart";
+import {
+    Chart,
+    CoursesCompleted,
+    CurrentCourses,
+    ProfilePart,
+} from "./components/index";
 
-function Profile() {
-  return (
-    <>
-      <div className="profile__page">
-        <ProfilePart />
-        <div className="profile__content">
-          <CoursesCompleted />
-          <CurrentCourses />
-          <Chart />
-        </div>
-      </div>
-    </>
-  );
-}
+const Profile = () => {
+    return (
+        <>
+            <div className='profile__page'>
+                <ProfilePart />
+                <div className='profile__content'>
+                    <CoursesCompleted />
+                    <CurrentCourses />
+                    <Chart />
+                </div>
+            </div>
+        </>
+    );
+};
 
 export default Profile;

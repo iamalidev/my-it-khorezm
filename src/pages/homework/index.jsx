@@ -1,13 +1,13 @@
-import LargeTitle from "@/components/largeTitle";
-import HomeworkCard from "./components/homeworkCard";
+import { LargeTitle } from "@/components/index";
+import { HomeworkCard } from "./components/index";
 
-function Homework() {
-  return (
-    <div className="homework__page">
-      <LargeTitle text="Uyga Vazifa" />
-      <HomeworkCard />
-    </div>
-  );
-}
+const Homework = () => {
+    return (
+        <div className='homework__page'>
+            <LargeTitle text='Uyga Vazifa' />
+            <HomeworkCard />
+        </div>
+    );
+};
 
 export default Homework;
