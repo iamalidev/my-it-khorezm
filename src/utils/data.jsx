@@ -1,19 +1,19 @@
 import {
-  BgBookmarkIcon,
-  BgLampIcon,
-  BgTickIcon,
-  BookmarkIcon,
-  CourseCardBg,
-  GreenPentulIcon,
-  LampIcon,
-  TickIcon,
-  
-  VideoIcon,
-  ZipIcon,
-  CompletedIcon,
-  PdfIcon,
+    BgBookmarkIcon,
+    BgLampIcon,
+    BgTickIcon,
+    BookmarkIcon,
+    CourseCardBg,
+    GreenPentulIcon,
+    LampIcon,
+    TickIcon,
+    VideoIcon,
+    ZipIcon,
+    CompletedIcon,
+    PdfIcon,
 } from "@/assets/icons";
 import { avatarImg } from "@/assets/images";
+import { useState } from "react";
 
 export const planData = [
     {
@@ -485,3 +485,51 @@ export const testData = [
         ],
     },
 ];
+
+export const monthNames = [
+    "Yanvar",
+    "Fevral",
+    "Mart",
+    "Aprel",
+    "May",
+    "Iyun",
+    "Iyul",
+    "Auvgust",
+    "Sentabr",
+    "Oktabr",
+    "Noyabr",
+    "Dekambr",
+];
+
+export const weekNames = [
+    {
+        id: 0,
+        week: "M",
+    },
+    {
+        id: 1,
+        week: "T",
+    },
+    {
+        id: 2,
+        week: "W",
+    },
+    {
+        id: 3,
+        week: "T",
+    },
+    {
+        id: 4,
+        week: "F",
+    },
+    {
+        id: 5,
+        week: "S",
+    },
+    {
+        id: 6,
+        week: "S",
+    },
+];
+
+

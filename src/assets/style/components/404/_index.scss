@@ -1,0 +1,16 @@
+.notfound-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    font-size: 40px;
+
+    &_title {
+        display: flex;
+        align-items: center;
+    }
+
+    &_btn {
+        border: 1px solid #000;
+        padding: 10px;
+    }
+}

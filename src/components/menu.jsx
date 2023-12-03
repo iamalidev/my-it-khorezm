@@ -4,30 +4,30 @@ import { menuData } from "@/constants/menuSide";
 import { Logo } from "@/assets/icons";
 
 const Menu = () => {
-  const location = useLocation();
-  return (
-    <div className="wrapper-menu">
-      <Link to="/">
-        <Logo />
-      </Link>
-      <div className="wrapper-menu_list">
-        {menuData.map((item) => (
-          <NavLink key={item.id} to={item.path}>
-            <div
-              className={clsx(
-                "wrapper-menu_list__link",
-                location.pathname == item.path && "active",
-                item.visible && "hidden"
-              )}
-            >
-              {item.icon}
-              {item.label}
+    const location = useLocation();
+    return (
+        <div className='wrapper-menu'>
+            <Link to='/'>
+                <Logo />
+            </Link>
+            <div className='wrapper-menu_list'>
+                {menuData.map(({ id, path, icon, label, visible }) => (
+                    <NavLink key={id} to={path}>
+                        <div
+                            className={clsx(
+                                "wrapper-menu_list__link",
+                                location.pathname == path && "active",
+                                visible && "hidden"
+                            )}
+                        >
+                            {icon}
+                            {label}
+                        </div>
+                    </NavLink>
+                ))}
             </div>
-          </NavLink>
-        ))}
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default Menu;
