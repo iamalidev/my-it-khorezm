@@ -1,15 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import clsx from "clsx";
-import { routes } from "../constants/routes";
+import { routes } from "@/constants/routes";
 import Header from "./header";
 import Menu from "./menu";
 
 const Root = () => {
     return (
         <div className='wrapper'>
-            <div>
-                <Menu />
-            </div>
+            <Menu />
             <div className='wrapper-content'>
                 <Header />
                 <div className='wrapper-content_inside'>
@@ -20,9 +17,6 @@ const Root = () => {
                                     key={el.path}
                                     path={el.path}
                                     element={el.components}
-                                    // className={clsx(
-                                    //     `${!el.visible && "hidden"}`
-                                    // )}
                                 />
                             ))}
                         </Routes>

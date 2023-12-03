@@ -5,7 +5,6 @@ import LoginLogo from "@/assets/icons/loginLogo";
 
 const LoginPage = () => {
     const loginRequest = usePostRequest({ url: loginUrl });
-    const { loading } = loginRequest;
 
     return (
         <div className='login__page'>

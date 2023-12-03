@@ -1,0 +1,12 @@
+export { default as PageNotFound } from "./404";
+export { default as CoursesPage } from "./courses";
+export { default as HomePage } from "./home";
+export { default as Lessons } from "./lessons";
+export { default as LessonTable } from "./lessonTable";
+export { default as LoginPage } from "./login";
+export { default as Modules } from "./modules";
+export { default as MyPayments } from "./myPayments";
+export { default as Profile } from "./profile";
+export { default as Tests } from "./tests";
+export { default as CheckUser } from "./check";
+export { default as Homework } from "./homework";
