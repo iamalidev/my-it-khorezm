@@ -1,11 +1,7 @@
-import { usePostRequest } from "@/hooks/request";
-import { loginUrl } from "@/utils/urls";
 import { LoginForm } from "./companents/index";
 import LoginLogo from "@/assets/icons/loginLogo";
 
 const LoginPage = () => {
-    const loginRequest = usePostRequest({ url: loginUrl });
-
     return (
         <div className='login__page'>
             <div className='login'>

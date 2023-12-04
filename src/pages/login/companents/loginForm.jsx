@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Button, Checkbox, Form, Input, Spin, message } from "antd";
-import { usePostRequest } from "@/hooks/request";
-import { UserContext } from "@/context/userContext";
+import { usePostRequest } from "@/service/request";
+import { UserContext } from "@/service/userContext";
 import { loginUrl } from "@/utils/urls";
 
 const LoginForm = () => {

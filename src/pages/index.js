@@ -1,12 +1,29 @@
-export { default as PageNotFound } from "./404";
-export { default as CoursesPage } from "./courses";
-export { default as HomePage } from "./home";
-export { default as Lessons } from "./lessons";
-export { default as LessonTable } from "./lessonTable";
-export { default as LoginPage } from "./login";
-export { default as Modules } from "./modules";
-export { default as MyPayments } from "./myPayments";
-export { default as Profile } from "./profile";
-export { default as Tests } from "./tests";
-export { default as CheckUser } from "./check";
-export { default as Homework } from "./homework";
+import { lazy } from "react";
+
+const PageNotFound = lazy(() => import("./404"));
+const CoursesPage = lazy(() => import("./courses"));
+const HomePage = lazy(() => import("./home"));
+const Lessons = lazy(() => import("./lessons"));
+const LessonTable = lazy(() => import("./lessonTable"));
+const LoginPage = lazy(() => import("./login"));
+const Modules = lazy(() => import("./modules"));
+const MyPayments = lazy(() => import("./myPayments"));
+const Profile = lazy(() => import("./profile"));
+const Tests = lazy(() => import("./tests"));
+const CheckUser = lazy(() => import("./check"));
+const Homework = lazy(() => import("./homework"));
+
+export {
+    PageNotFound,
+    CoursesPage,
+    HomePage,
+    LessonTable,
+    Lessons,
+    LoginPage,
+    Modules,
+    MyPayments,
+    Profile,
+    Tests,
+    CheckUser,
+    Homework,
+};

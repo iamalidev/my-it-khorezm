@@ -2,14 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Dropdown } from "antd";
 import BigTitle from "./largeTitle";
-import {
-    ChatIcon,
-    DropdownProfileIcon,
-    LogOutIcon,
-    NotificationIcon,
-    ProfileImage,
-    SettingIcon,
-} from "@/assets/icons";
+import { DropdownProfileIcon, LogOutIcon, ProfileImage } from "@/assets/icons";
 
 const items = [
     {
@@ -80,9 +73,6 @@ const Header = () => {
         <div className='wrapper-header'>
             <BigTitle text={headerTitle} />
             <div className='wrapper-header_actions'>
-                <ChatIcon />
-                <NotificationIcon />
-                <SettingIcon />
                 <Dropdown
                     menu={{
                         items,

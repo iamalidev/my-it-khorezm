@@ -1,7 +1,6 @@
-import { Route, Routes } from "react-router-dom";
-import { routes } from "@/constants/routes";
 import Header from "./header";
 import Menu from "./menu";
+import { Content } from "./index";
 
 const Root = () => {
     return (
@@ -9,19 +8,7 @@ const Root = () => {
             <Menu />
             <div className='wrapper-content'>
                 <Header />
-                <div className='wrapper-content_inside'>
-                    <div className='container'>
-                        <Routes>
-                            {routes.map((el) => (
-                                <Route
-                                    key={el.path}
-                                    path={el.path}
-                                    element={el.components}
-                                />
-                            ))}
-                        </Routes>
-                    </div>
-                </div>
+                <Content />
             </div>
         </div>
     );
