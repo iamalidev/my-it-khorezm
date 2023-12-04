@@ -8,3 +8,4 @@ export { default as Menu } from "./menu";
 export { default as PlanCard } from "./planCard";
 export { default as Root } from "./root";
 export { default as SmallTitle } from "./smallTitle";
+export { default as Content } from "./content";

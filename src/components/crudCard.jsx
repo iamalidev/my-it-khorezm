@@ -44,8 +44,6 @@ function CrudCard() {
                                     <CircleCheckIcon />
                                     <p>Tugallangan</p>
                                 </div>
-
-                                <p>{}</p>
                             </div>
 
                             <div className='course-card__info-teacher'>

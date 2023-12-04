@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import UserProvider from "@/context/userContext";
+import UserProvider from "@/service/userContext";
 import CheckUser from "@/pages/check";
 import "@/assets/style/main.scss";
 
