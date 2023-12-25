@@ -1,19 +1,5 @@
-import {
-    BgBookmarkIcon,
-    BgLampIcon,
-    BgTickIcon,
-    BookmarkIcon,
-    CourseCardBg,
-    GreenPentulIcon,
-    LampIcon,
-    TickIcon,
-    VideoIcon,
-    ZipIcon,
-    CompletedIcon,
-    PdfIcon,
-} from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 import { avatarImg } from "@/assets/images";
-import { useState } from "react";
 
 export const planData = [
     {
@@ -42,24 +28,24 @@ export const planData = [
 export const infoData = [
     {
         id: 1,
-        bgImg: <BgTickIcon />,
-        icon: <TickIcon />,
+        bgImg: <Icons.bgTickIcon />,
+        icon: <Icons.tickIcon />,
         number: "1.500",
         text: "Yakunlangan Kurslar",
         class: "info-card green",
     },
     {
         id: 2,
-        bgImg: <BgLampIcon />,
-        icon: <LampIcon />,
+        bgImg: <Icons.bgLampIcon />,
+        icon: <Icons.lampIcon />,
         number: "903",
         text: "Davom Etayotgan Kurslar",
         class: "info-card orange",
     },
     {
         id: 3,
-        bgImg: <BgBookmarkIcon />,
-        icon: <BookmarkIcon />,
+        bgImg: <Icons.bgBookmarkIcon />,
+        icon: <Icons.bookmarkIcon />,
         number: "1.112",
         text: "Tugallangan Kurslar",
         class: "info-card darkBlue",
@@ -81,7 +67,7 @@ export const courseInfo = [
     {
         id: 0,
         title: "Web va grafik dizayn",
-        bgSvg: <CourseCardBg />,
+        bgSvg: <Icons.courseCardBg />,
         date: "Yanvar 17, 2021",
         time: "09.00 - 10.00",
         teacher: "Humoyun Madraximov",
@@ -91,7 +77,7 @@ export const courseInfo = [
     {
         id: 1,
         title: "Web va grafik dizayn",
-        bgSvg: <CourseCardBg />,
+        bgSvg: <Icons.courseCardBg />,
         date: "Yanvar 17, 2021",
         time: "09.00 - 10.00",
         teacher: "Humoyun Madraximov",
@@ -104,7 +90,7 @@ export const crudInfo = [
     {
         id: 0,
         title: "Web va grafik dizayn",
-        bgSvg: <CourseCardBg />,
+        bgSvg: <Icons.courseCardBg />,
         date: "Yanvar 17, 2021",
         time: "09.00 - 10.00",
         teacher: "Humoyun Madraximov",
@@ -114,7 +100,7 @@ export const crudInfo = [
     {
         id: 1,
         title: "Web va grafik dizayn",
-        bgSvg: <CourseCardBg />,
+        bgSvg: <Icons.courseCardBg />,
         date: "Yanvar 17, 2021",
         time: "09.00 - 10.00",
         teacher: "Humoyun Madraximov",
@@ -127,13 +113,13 @@ export const payInfo = [
     {
         id: 0,
         title: "Web va grafik dizayn",
-        img: <GreenPentulIcon />,
-        price: "400 000 so’m /oy",
+        img: <Icons.greenPentulIcon />,
+        price: "400 000 so'm /oy",
     },
     {
         id: 1,
         title: "SMM",
-        img: <GreenPentulIcon />,
+        img: <Icons.greenPentulIcon />,
         price: "400 000 so’m /oy",
     },
 ];
@@ -165,13 +151,13 @@ export const moduleData = [
 export const courseCompleted = [
     {
         id: 0,
-        image: <CompletedIcon />,
+        image: <Icons.completedIcon />,
         title: "100",
         text: "Courses Completed",
     },
     {
         id: 1,
-        image: <CompletedIcon />,
+        image: <Icons.completedIcon />,
         title: "34",
         text: "Courses In Progress",
     },
@@ -212,20 +198,20 @@ export const profilePart = [
 export const filesInfo = [
     {
         id: 0,
-        icon: <VideoIcon />,
+        icon: <Icons.videoIcon />,
         title: "Kirish, Video",
         btn: "Yuklab olish",
     },
     {
         id: 1,
-        icon: <PdfIcon />,
+        icon: <Icons.pdfIcon />,
         title: "Kirish, Prezdentatsiya",
         btn: "Yuklab olish",
     },
     {
         id: 2,
-        icon: <ZipIcon />,
-        title: "Kirish qo’llanilgan materiallar",
+        icon: <Icons.zipIcon />,
+        title: "Kirish qo'llanilgan materiallar",
         btn: "Yuklab olish",
     },
 ];
@@ -531,5 +517,3 @@ export const weekNames = [
         week: "S",
     },
 ];
-
-

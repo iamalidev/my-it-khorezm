@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Progress, Avatar } from "antd";
 import { courseInfo } from "@/utils/data";
-import { ClockIcon, RetryIcon, WhiteCalendarIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const CourseCard = () => {
     return (
@@ -30,12 +30,12 @@ const CourseCard = () => {
 
                                 <div className='course-card__info'>
                                     <div className='course-card__info-date'>
-                                        <WhiteCalendarIcon />
+                                        <Icons.whiteCalendarIcon />
                                         <p>{date}</p>
                                     </div>
 
                                     <div className='course-card__info-date'>
-                                        <ClockIcon />
+                                        <Icons.clockIcon />
                                         <p>{time}</p>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@ const CourseCard = () => {
 
                                 <div className='course-card__informant'>
                                     <div className='course-card__informant-inner'>
-                                        <RetryIcon />
+                                        <Icons.retryIcon />
                                         <p>Jarayonda</p>
                                     </div>
 

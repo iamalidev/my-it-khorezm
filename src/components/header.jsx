@@ -2,21 +2,21 @@ import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Dropdown } from "antd";
 import BigTitle from "./largeTitle";
-import { DropdownProfileIcon, LogOutIcon, ProfileImage } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const items = [
     {
         key: "1",
-        icon: <DropdownProfileIcon />,
+        icon: <Icons.dropdownProfileIcon />,
         label: (
             <NavLink to='/profile'>
-                <span className='header__dropdown_label'>Profil</span>
+                <span className='header-dropdown_label'>Profil</span>
             </NavLink>
         ),
     },
     {
         key: "2",
-        icon: <LogOutIcon />,
+        icon: <Icons.logOutIcon />,
         label: (
             <button
                 className='danger-label'
@@ -79,7 +79,7 @@ const Header = () => {
                     }}
                     placement='bottom'
                 >
-                    <ProfileImage />
+                    <Icons.profileImage />
                 </Dropdown>
             </div>
         </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Avatar } from "antd";
 import { planData } from "@/utils/data";
 import { avatarImg } from "@/assets/images";
-import { GrayCalendarIcon, GrayClockIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const PlanCard = () => {
     const [border, setBorder] = useState([]);
@@ -31,14 +31,14 @@ const PlanCard = () => {
 
                         <div className='plan-card__info'>
                             <div className='plan-card__info-date'>
-                                <GrayCalendarIcon />
+                                <Icons.grayCalendarIcon />
                                 <p>{date}</p>
                             </div>
 
                             <span className='plan-card__info-line'></span>
 
                             <div className='plan-card__info-date'>
-                                <GrayClockIcon />
+                                <Icons.grayClockIcon />
                                 <p>{time}</p>
                             </div>
                         </div>

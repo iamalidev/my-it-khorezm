@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Progress } from "antd";
 import { circleProgress } from "@/utils/data";
 import { SmallTitle } from "@/components/index";
-import { ArrowIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const CurrentCourses = () => {
     return (
@@ -12,7 +11,7 @@ const CurrentCourses = () => {
                 <SmallTitle text={"Current Courses"} />
                 <Link to='#'>
                     <p className='circle-title__link'>
-                        View all <ArrowIcon />
+                        View all <Icons.arrowIcon />
                     </p>
                 </Link>
             </div>

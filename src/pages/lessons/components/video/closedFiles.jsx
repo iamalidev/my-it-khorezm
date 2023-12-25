@@ -1,14 +1,8 @@
 /* eslint-disable react/prop-types */
 import MemberModal from "../memberModal";
-import {
-    BgBookIcon,
-    BgCalendarIcon,
-    BigCrownIcon,
-    CrownIcon,
-} from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
-
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -22,10 +16,10 @@ function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
                 <button className='close-btn' onClick={showModal}>
                     A`zo bo`lish
                 </button>
-                <BgBookIcon className='close-book__icon' />
-                <BgCalendarIcon className='close-calendar__icon' />
-                <CrownIcon className='close-crown__icon' />
-                <BigCrownIcon className='close-big__crown-icon' />
+                <Icons.bgBookIcon className='close-book__icon' />
+                <Icons.bgCalendarIcon className='close-calendar__icon' />
+                <Icons.crownIcon className='close-crown__icon' />
+                <Icons.bigCrownIcon className='close-big__crown-icon' />
             </div>
             <MemberModal
                 setLock={setLock}
@@ -34,6 +28,6 @@ function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
             />
         </>
     );
-};
+}
 
 export default ClosedFiles;

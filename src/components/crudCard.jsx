@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Progress, Avatar } from "antd";
-import { CircleCheckIcon, ClockIcon, WhiteCalendarIcon } from "@/assets/icons";
 import { crudInfo } from "@/utils/data";
+import { Icons } from "@/assets/icons/icons";
 
 function CrudCard() {
     return (
@@ -23,12 +23,12 @@ function CrudCard() {
 
                             <div className='course-card__info'>
                                 <div className='course-card__info-date'>
-                                    <WhiteCalendarIcon />
+                                    <Icons.whiteCalendarIcon />
                                     <p>{el.date}</p>
                                 </div>
 
                                 <div className='course-card__info-date'>
-                                    <ClockIcon />
+                                    <Icons.clockIcon />
                                     <p>{el.time}</p>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@ function CrudCard() {
 
                             <div className='course-card__informant'>
                                 <div className='course-card__informant-inner'>
-                                    <CircleCheckIcon />
+                                    <Icons.circleCheckIcon />
                                     <p>Tugallangan</p>
                                 </div>
                             </div>
