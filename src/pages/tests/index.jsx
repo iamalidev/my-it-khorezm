@@ -46,8 +46,6 @@ const Tests = () => {
         );
     };
 
-    console.log(activeTab);
-
     const activeTabDirection = (number) => {
         tabContainer.scrollLeft = activeTabButton.offsetLeft - number;
     };
@@ -77,7 +75,7 @@ const Tests = () => {
                         <Icons.bigBlueArrowIcon />
                     </button>
                     <div className='lesson-buttons__wrapper'>
-                        {data.map((button) => (
+                        {testData.map((button) => (
                             <button
                                 key={button.id}
                                 className={
@@ -96,7 +94,7 @@ const Tests = () => {
                     <button
                         className='lesson-navigation__button'
                         onClick={() => {
-                            data.map((el) => {
+                            testData.map((el) => {
                                 if (activeButton < el.id) {
                                     setActiveButton(activeButton + 1);
                                 }
@@ -116,7 +114,7 @@ const Tests = () => {
                     "results: 10/15"
                 ) : (
                     <div className='tab-content__container'>
-                        {data.map((button) =>
+                        {testData.map((button) =>
                             activeButton === button.id ? (
                                 <>
                                     <div
@@ -257,7 +255,9 @@ const Tests = () => {
                     <button
                         className='task-navigation__button'
                         onClick={handleNextTaskTab}
-                        disabled={activeTab === data[data.length - 1].id}
+                        disabled={
+                            activeTab === testData[testData.length - 1].id
+                        }
                     >
                         Next <Icons.gradientArrowIcon />
                     </button>

@@ -16,9 +16,10 @@ const CourseCard = () => {
                     progress,
                     teacher,
                     teacherImg,
+                    path,
                 }) => {
                     return (
-                        <Link to='/lessons' key={id}>
+                        <Link to={`/my-courses/${path}`} key={id}>
                             <div className='course-card'>
                                 <span className='course-card__bg-img'>
                                     {bgSvg}

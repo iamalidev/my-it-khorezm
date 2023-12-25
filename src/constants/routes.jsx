@@ -59,4 +59,9 @@ export const routes = [
         components: <Homework />,
         path: "/homework",
     },
+    {
+        id: 9,
+        components: <Lessons />,
+        path: "/my-courses/:path",
+    },
 ];
