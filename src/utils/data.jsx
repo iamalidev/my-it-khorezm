@@ -484,7 +484,7 @@ export const monthNames = [
     "Sentabr",
     "Oktabr",
     "Noyabr",
-    "Dekambr",
+    "Dekabr",
 ];
 
 export const weekNames = [
