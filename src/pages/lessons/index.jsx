@@ -1,11 +1,15 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Progress } from "antd";
 import { SmallTitle } from "@/components/index";
 import { Accordion, VidStack, Tab, VideoPlayer } from "./components/index";
+import { useParams } from "react-router-dom";
+import { courseInfo } from "@/utils/data";
 
 const Lessons = () => {
+    const { path } = useParams();
     const [toggle, setToggle] = useState(false);
     const [activeTab, setActiveTab] = useState(0);
+    const [lesson, setLesson] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const videoRef = useRef(null);
     let process = 20;
@@ -46,11 +50,16 @@ const Lessons = () => {
         setToggle(!toggle);
     };
 
+    useEffect(() => {
+        setLesson(courseInfo.find((el) => el.path == path));
+    }, [path]);
+
+    console.log(lesson);
     return (
         <>
             <div style={{ display: "flex", gap: "64px" }}>
                 <div className='tab-content'>
-                    <p className='tab__title'>Web va Grafik dizayn</p>
+                    <p className='tab__title'>{lesson?.title}</p>
 
                     <VideoPlayer
                         tabs={tabs}

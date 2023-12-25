@@ -73,16 +73,18 @@ export const courseInfo = [
         teacher: "Humoyun Madraximov",
         teacherImg: avatarImg,
         progress: 10,
+        path: "web-va-grafik-dizayn",
     },
     {
         id: 1,
-        title: "Web va grafik dizayn",
+        title: "Frontend dasturlash",
         bgSvg: <Icons.courseCardBg />,
         date: "Yanvar 17, 2021",
         time: "09.00 - 10.00",
         teacher: "Humoyun Madraximov",
         teacherImg: avatarImg,
         progress: 30,
+        path: "front-end-dasturlash",
     },
 ];
 
