@@ -1,6 +1,6 @@
 import { Progress } from "antd";
 import { GreenBtn } from "@/components/index";
-import { GrayTickIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const ProccessCard = () => {
     let num = 20;
@@ -10,7 +10,7 @@ const ProccessCard = () => {
             <div className='proccess_top'>
                 <span className='proccess_info'>
                     {num >= 100 ? "10" : num / 10}
-                    <GrayTickIcon className='proccess_icon' />
+                    <Icons.grayTickIcon className='proccess_icon' />
                 </span>
 
                 <div className='proccess_title'>

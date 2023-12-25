@@ -3,7 +3,7 @@ import { HomeworkCard } from "./components/index";
 
 const Homework = () => {
     return (
-        <div className='homework__page'>
+        <div className='homework'>
             <LargeTitle text='Uyga Vazifa' />
             <HomeworkCard />
         </div>

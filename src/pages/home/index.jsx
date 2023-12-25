@@ -25,7 +25,7 @@ const HomePage = () => {
                 </div>
 
                 <div className='calendar-header'>
-                    <LargeTitle text='Jarayondaki kurslar ro’yxati' />
+                    <LargeTitle text='Jarayondaki kurslar ro`yxati' />
 
                     <Link to='/my-courses' className='course-card__link'>
                         Barcha Kurslar

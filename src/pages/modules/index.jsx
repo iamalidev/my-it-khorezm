@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { moduleData } from "@/utils/data";
 import { GreenBtn } from "@/components/index";
 import { ProccessCard } from "./components/index";
-import { GreenTickIcon, LockIcon, PlatteIcon, SmileIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const Modules = () => {
     const [icon, setIcon] = useState("");
 
     useEffect(() => {
         if (moduleData.map((el) => el.condition) === "done") {
-            setIcon(<SmileIcon />);
+            setIcon(<Icons.smileIcon />);
         } else {
-            setIcon(<PlatteIcon />);
+            setIcon(<Icons.platteIcon />);
         }
     }, []);
 
@@ -58,7 +58,10 @@ const Modules = () => {
                             </div>
 
                             {el.condition == "done" ? (
-                                <GreenTickIcon color='#166199' size='30' />
+                                <Icons.greenTickIcon
+                                    color='#166199'
+                                    size='30'
+                                />
                             ) : el.condition == "progress" ? (
                                 <GreenBtn
                                     text='Davom ettirish'
@@ -66,7 +69,7 @@ const Modules = () => {
                                     link='/tests'
                                 />
                             ) : (
-                                <LockIcon
+                                <Icons.lockIcon
                                     style={{
                                         boxShadow:
                                             "3px 3px 8px 0px rgba(200, 200, 200, 0.20)",

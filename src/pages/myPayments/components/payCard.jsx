@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookMediaIcon, GreenPentulIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const PayCard = () => {
     const [rotate, setRotate] = useState(45);
@@ -27,7 +27,7 @@ const PayCard = () => {
     return (
         <div className='pay-card'>
             <div className='pay-card__top'>
-                <GreenPentulIcon color={color} />
+                <Icons.greenPentulIcon color={color} />
 
                 <div
                     className='pay-card__top-title'
@@ -43,7 +43,7 @@ const PayCard = () => {
             >
                 <div className='item'>
                     <div className='item-inner'>
-                        <BookMediaIcon color={color} />
+                        <Icons.bookMediaIcon color={color} />
 
                         <p
                             className='item-inner__title'
@@ -71,7 +71,7 @@ const PayCard = () => {
 
                 <div className='item'>
                     <div className='item-inner'>
-                        <BookMediaIcon color={color} />
+                        <Icons.bookMediaIcon color={color} />
 
                         <p
                             className='item-inner__title'
@@ -99,7 +99,7 @@ const PayCard = () => {
 
                 <div className='item'>
                     <div className='item-inner'>
-                        <BookMediaIcon color={color} />
+                        <Icons.bookMediaIcon color={color} />
 
                         <p
                             className='item-inner__title'
@@ -138,7 +138,7 @@ const PayCard = () => {
                         className='pay-card__inner-price'
                         style={{ color: `${color}` }}
                     >
-                        400 000 so’m /oy
+                        400 000 so'm /oy
                     </p>
                     <button
                         className='pay-card__inner-btn'

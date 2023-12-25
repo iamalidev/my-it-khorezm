@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
-import { GreenPentulIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 function HomeworkCard() {
     return (
-        <div className='homework__card'>
-            <GreenPentulIcon color='#166199' />
+        <div className='homework-card'>
+            <Icons.greenPentulIcon color='#166199' />
 
-            <div className='homework__inner'>
-                <div className='homework__info'>
-                    <span className='homework__title'>
+            <div className='homework-inner'>
+                <div className='homework-info'>
+                    <span className='homework-info_title'>
                         Web va Grafik dizayn
                     </span>
-                    <p className='homework__subtitle'>
+                    <p className='homework-info_subtitle'>
                         O`qituvchi: Humoyun madrahimov
                     </p>
                 </div>

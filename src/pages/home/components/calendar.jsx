@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DetailedBtn from "@/components/detailedBtn";
-import { GrayArrowIcon } from "@/assets/icons";
 import { monthNames, weekNames } from "@/utils/data";
+import { Icons } from "@/assets/icons/icons";
 
 const Calendar = () => {
     const [date, setDate] = useState(new Date());
@@ -97,7 +97,7 @@ const Calendar = () => {
                     className='calendar-header__swipe-button'
                     onClick={handlePrevMonth}
                 >
-                    <GrayArrowIcon />
+                    <Icons.grayArrowIcon />
                 </button>
                 <h2 className='calendar-header__month-year'>
                     {monthNames[date.getMonth()]}, {date.getFullYear()}
@@ -106,7 +106,7 @@ const Calendar = () => {
                     className='calendar-header__swipe-button'
                     onClick={handleNextMonth}
                 >
-                    <GrayArrowIcon className='next-arrow' />
+                    <Icons.grayArrowIcon className='next-arrow' />
                 </button>
             </div>
             <div className='calendar-weekdays'>

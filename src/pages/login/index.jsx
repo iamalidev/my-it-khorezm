@@ -1,5 +1,5 @@
+import { Icons } from "@/assets/icons/icons";
 import { LoginForm } from "./companents/index";
-import LoginLogo from "@/assets/icons/loginLogo";
 
 const LoginPage = () => {
     return (
@@ -16,7 +16,7 @@ const LoginPage = () => {
                 </div>
                 <div className='login__img'>
                     <div className='login__img_wrapper'>
-                        <LoginLogo />
+                        <Icons.loginLogo />
                     </div>
                 </div>
             </div>

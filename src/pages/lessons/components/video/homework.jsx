@@ -1,4 +1,4 @@
-import { ZipIcon } from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const Homework = () => {
     return (
@@ -12,7 +12,7 @@ const Homework = () => {
 
                 <div className='homework-install'>
                     <div className='homework-install__left'>
-                        <ZipIcon />
+                        <Icons.zipIcon />
                         <p className='homework-install__left-text'>
                             uyga vazifa uchun materiallar
                         </p>

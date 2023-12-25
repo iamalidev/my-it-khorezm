@@ -9,12 +9,7 @@ import {
 } from "recharts";
 import { format, parseISO, subDays } from "date-fns";
 import { SmallTitle } from "@/components/index";
-import {
-    ChartSelectIcon,
-    LastWeekDotIcon,
-    ThisWeekDotIcon,
-    ThreeDotIcon,
-} from "@/assets/icons";
+import { Icons } from "@/assets/icons/icons";
 
 const data = [];
 for (let num = 6; num >= 0; num--) {
@@ -37,17 +32,17 @@ export default function Chart() {
                 <div className='chart__actions'>
                     <div className='chart__items'>
                         <div className='chart__item'>
-                            <LastWeekDotIcon />
+                            <Icons.lastWeekDotIcon />
                             <span className='chart__week'>Last Week</span>
                         </div>
                         <div className='chart__item'>
-                            <ThisWeekDotIcon />
+                            <Icons.thisWeekDotIcon />
                             <span className='chart__week'>This Week</span>
                         </div>
                     </div>
                     <div className='chart__items'>
                         <Select
-                            suffixIcon={<ChartSelectIcon />}
+                            suffixIcon={<Icons.chartSelectIcon />}
                             defaultValue='This Week'
                             onChange={handleChange}
                             options={[
@@ -61,7 +56,7 @@ export default function Chart() {
                                 },
                             ]}
                         />
-                        <ThreeDotIcon />
+                        <Icons.threeDotIcon />
                     </div>
                 </div>
             </div>
