@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Button, Checkbox, Form, Input, Spin, message } from "antd";
+import { Button, Checkbox, Form, Input, Spin, Typography, message } from "antd";
 import { usePostRequest } from "@/service/request";
 import { UserContext } from "@/service/userContext";
 import { loginUrl } from "@/utils/urls";
@@ -24,12 +24,15 @@ const LoginForm = () => {
     return (
         <Form
             autoSave='username'
-            className='login__form_wrapper'
+            className='page-layer_content-login'
             autoComplete='off'
             initialValues={{ remember: true }}
             onFinish={handleSubmit}
             layout='vertical'
         >
+            <Typography.Title level={2} className='login-title'>
+                Tizimga kirish
+            </Typography.Title>
             <Form.Item
                 name='username'
                 label='Login'
@@ -80,7 +83,7 @@ const LoginForm = () => {
             >
                 <Checkbox>Parolni saqlash</Checkbox>
             </Form.Item>
-            <Button className='login__form_btn' htmlType='submit'>
+            <Button className='login__form_btn' size='large' htmlType='submit'>
                 Kirish
                 {loading && <Spin style={{ marginLeft: "10px" }} />}
             </Button>

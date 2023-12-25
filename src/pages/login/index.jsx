@@ -3,20 +3,17 @@ import { LoginForm } from "./companents/index";
 
 const LoginPage = () => {
     return (
-        <div className='login__page'>
-            <div className='login'>
-                <div className='login__form'>
-                    <div className='login__info'>
-                        <h1 className='login__title'>IT Park Xorazm</h1>
-                        <p className='login__text'>
-                            #Sening IT Karyerang shu yerdan boshlanadi
+        <div className='login-page'>
+            <div className='login-page_layer page-layer'>
+                <Icons.laptopIcon className='page-layer_icon' />
+
+                <div className='container'>
+                    <div className='page-layer_content'>
+                        <Icons.whiteLogo />
+                        <LoginForm />
+                        <p className='page-layer_content-copyright'>
+                            {new Date().getFullYear()}-yil Praktikum Academy
                         </p>
-                    </div>
-                    <LoginForm />
-                </div>
-                <div className='login__img'>
-                    <div className='login__img_wrapper'>
-                        <Icons.loginLogo />
                     </div>
                 </div>
             </div>

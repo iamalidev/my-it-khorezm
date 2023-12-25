@@ -1,40 +1,41 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Dropdown } from "antd";
 import BigTitle from "./largeTitle";
 import { Icons } from "@/assets/icons/icons";
-
-const items = [
-    {
-        key: "1",
-        icon: <Icons.dropdownProfileIcon />,
-        label: (
-            <NavLink to='/profile'>
-                <span className='header-dropdown_label'>Profil</span>
-            </NavLink>
-        ),
-    },
-    {
-        key: "2",
-        icon: <Icons.logOutIcon />,
-        label: (
-            <button
-                className='danger-label'
-                onClick={() => {
-                    localStorage.clear();
-                    location.reload();
-                }}
-            >
-                Chiqish
-            </button>
-        ),
-    },
-];
+import { UserContext } from "@/service/userContext";
 
 const Header = () => {
     const [headerTitle, setHeaderTitle] = useState("");
     const location = useLocation();
-
+    const { setUser } = useContext(UserContext);
+    const {} = useContext();
+    const items = [
+        {
+            key: "1",
+            icon: <Icons.dropdownProfileIcon />,
+            label: (
+                <NavLink to='/profile'>
+                    <span className='header-dropdown_label'>Profil</span>
+                </NavLink>
+            ),
+        },
+        {
+            key: "2",
+            icon: <Icons.logOutIcon />,
+            label: (
+                <button
+                    className='danger-label'
+                    onClick={() => {
+                        localStorage.clear();
+                        location.href = "/login";
+                    }}
+                >
+                    Chiqish
+                </button>
+            ),
+        },
+    ];
     useEffect(() => {
         switch (location.pathname) {
             case "/":
