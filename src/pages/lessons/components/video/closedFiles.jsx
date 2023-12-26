@@ -16,10 +16,6 @@ function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
                 <button className='close-btn' onClick={showModal}>
                     A`zo bo`lish
                 </button>
-                <Icons.bgBookIcon className='close-book__icon' />
-                <Icons.bgCalendarIcon className='close-calendar__icon' />
-                <Icons.crownIcon className='close-crown__icon' />
-                <Icons.bigCrownIcon className='close-big__crown-icon' />
             </div>
             <MemberModal
                 setLock={setLock}

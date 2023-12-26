@@ -9,7 +9,6 @@ const Header = () => {
     const [headerTitle, setHeaderTitle] = useState("");
     const location = useLocation();
     const { setUser } = useContext(UserContext);
-    const {} = useContext();
     const items = [
         {
             key: "1",

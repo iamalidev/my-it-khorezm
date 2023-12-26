@@ -246,93 +246,99 @@ export const testData = [
         tab: [
             {
                 id: 1,
-                question: "Question 1",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: "HTML ning uzaytmasi?",
+                options: [
+                    "Hyper Text Markup Language",
+                    "High Tech Modern Language",
+                    "Hyperlink and Text Manipulation Language",
+                ],
                 answer: 0,
             },
             {
                 id: 2,
-                question: "Question 2",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: "CSS qisqartmasi nimaga tushadi?",
+                options: [
+                    "Computer Style Sheet",
+                    "Cascading Style Sheet",
+                    "Creative Style Sheet",
+                ],
                 answer: 1,
             },
             {
                 id: 3,
-                question: "Question 3",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: "HTML-da 'a' tegi nimaga ishlatiladi?",
+                options: [
+                    "Rasm kiritish uchun",
+                    "Matnni bold qilish uchun",
+                    "Hyperlink yaratish uchun",
+                ],
                 answer: 2,
             },
             {
                 id: 4,
-                question: "Question 4",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: "CSS-da 'margin' va 'padding' nimalarni ifodalaydi?",
+                options: [
+                    "Yuqori va pastki bo'shliklar",
+                    "Chap va o'ng bo'shliklar",
+                    "Qo'shimcha chizmalar",
+                ],
                 answer: 0,
             },
             {
                 id: 5,
-                question: "Question 5",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 1,
+                question: "'DOCTYPE' nima uchun kerak?",
+                options: ["Dokument turi", "Dokument xususiyati", "Option 3"],
+                answer: 0,
             },
             {
                 id: 6,
-                question: "Question 6",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 2,
+                question: `"display: none;" CSS-da nima uchun ishlatiladi?`,
+                options: [
+                    "Elementni yashirish",
+                    "Elementni kengaytirish",
+                    "Elementni ko'rsatish",
+                ],
+                answer: 0,
             },
             {
                 id: 7,
-                question: "Question 7",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: "HTML-da 'ol'  tegi nimaga ishlatiladi?",
+                options: [
+                    "Ro'yxatni belgilash uchun",
+                    "Matnni belgilash uchun",
+                    "Rasmni belgilash uchun",
+                ],
                 answer: 0,
             },
             {
                 id: 8,
-                question: "Question 8",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 1,
+                question: "CSS-da 'float' nima uchun ishlatiladi?",
+                options: [
+                    "Elementni chap yoki o'ngga ko'tarish uchun",
+                    "Elementni tepa yoki pastga ko'tarish uchun",
+                    "Elementni yashirish uchun",
+                ],
+                answer: 0,
             },
             {
                 id: 9,
-                question: "Question 9",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: `"class" va "id" atributlari arasidagi asosiy farq nima?`,
+                options: [
+                    "'class' uning ichida 'id' bor",
+                    "'id' uning ichida 'class' bor",
+                    "'class' bir nechta element uchun, 'id' faqat bitta element uchun",
+                ],
                 answer: 2,
             },
             {
                 id: 10,
-                question: "Question 10",
-                options: ["Option 1", "Option 2", "Option 3"],
+                question: "CSS-da 'z-index' nima uchun ishlatiladi?",
+                options: [
+                    "Elementni yashirish uchun",
+                    "Elementni to'g'ridan o'ngga ko'tarish uchun",
+                    "Elementni ustiga qo'yish uchun",
+                ],
                 answer: 0,
-            },
-            {
-                id: 11,
-                question: "Question 11",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 1,
-            },
-            {
-                id: 12,
-                question: "Question 12",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 2,
-            },
-            {
-                id: 13,
-                question: "Question 13",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 0,
-            },
-            {
-                id: 14,
-                question: "Question 14",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 1,
-            },
-            {
-                id: 15,
-                question: "Question 15",
-                options: ["Option 1", "Option 2", "Option 3"],
-                answer: 2,
             },
         ],
     },
@@ -340,13 +346,13 @@ export const testData = [
         id: 2,
         tab: [
             {
-                id: 16,
-                question: "Question 1",
+                id: 1,
+                question: "Question 1 ",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -357,13 +363,13 @@ export const testData = [
         id: 3,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -374,13 +380,13 @@ export const testData = [
         id: 4,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -391,13 +397,13 @@ export const testData = [
         id: 5,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -408,13 +414,13 @@ export const testData = [
         id: 6,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -425,13 +431,13 @@ export const testData = [
         id: 7,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -442,13 +448,13 @@ export const testData = [
         id: 8,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 17,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,
@@ -459,13 +465,13 @@ export const testData = [
         id: 9,
         tab: [
             {
-                id: 16,
+                id: 1,
                 question: "Question 1",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 1,
             },
             {
-                id: 18,
+                id: 2,
                 question: "Question 2",
                 options: ["Option 1", "Option 2", "Option 3"],
                 answer: 2,

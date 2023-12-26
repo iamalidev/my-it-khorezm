@@ -5,8 +5,6 @@ import { Information, Homework, Test, ClosedFiles, Files } from "./video/index";
 import { Icons } from "@/assets/icons/icons";
 
 export function VidStack({ setIsModalOpen, isModalOpen }) {
-    const [lock, setLock] = useState(true);
-
     return (
         <div className='video'>
             <div className='tab-box'>
@@ -16,62 +14,22 @@ export function VidStack({ setIsModalOpen, isModalOpen }) {
                     </Tabs>
 
                     <Tabs
-                        tab={
-                            <span className='tab-guide'>
-                                {lock == true ? (
-                                    <>
-                                        Fayllar <Icons.tabLockIcon />
-                                    </>
-                                ) : (
-                                    <>Fayllar</>
-                                )}
-                            </span>
-                        }
+                        tab={<span className='tab-guide'>Fayllar</span>}
                         key='tab2'
                     >
-                        {lock == true ? (
-                            <ClosedFiles
-                                setIsModalOpen={setIsModalOpen}
-                                isModalOpen={isModalOpen}
-                                setLock={setLock}
-                            />
-                        ) : (
-                            <Files />
-                        )}
+                        <Files />
                     </Tabs>
 
                     <Tabs
-                        tab={
-                            <span className='tab-guide'>
-                                {lock == true ? (
-                                    <>
-                                        Uyga vazifa <Icons.tabLockIcon />
-                                    </>
-                                ) : (
-                                    <>Uyga vazifa</>
-                                )}
-                            </span>
-                        }
-                        disabled={lock == true ? true : false}
+                        tab={<span className='tab-guide'>Uyga vazifa</span>}
                         key='tab3'
                     >
                         <Homework />
                     </Tabs>
 
                     <Tabs
-                        tab={
-                            <span className='tab-guide'>
-                                {lock == true ? (
-                                    <>
-                                        Sinov testi <Icons.tabLockIcon />
-                                    </>
-                                ) : (
-                                    <>Sinov testi</>
-                                )}
-                            </span>
-                        }
+                        tab={<span className='tab-guide'>Sinov testi</span>}
                         key='tab4'
-                        disabled={lock == true ? true : false}
                     >
                         <Test />
                     </Tabs>

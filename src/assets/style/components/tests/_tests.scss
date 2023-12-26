@@ -2,23 +2,23 @@
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-  
-  .lesson-content__wrapper {
+}
+
+.lesson-content__wrapper {
     display: flex;
     align-items: center;
     gap: 10px;
-  }
-  
-  .lesson-navigation__button {
+}
+
+.lesson-navigation__button {
     padding: 12px 46px;
     border: 1px solid $blue;
     background-color: $white;
     border-radius: 15px;
     box-shadow: 3px 3px 8px 0px rgba(200, 200, 200, 0.2);
-  }
-  
-  .lesson-button {
+}
+
+.lesson-button {
     white-space: nowrap;
     padding: 15px 32px;
     border-radius: 15px;
@@ -29,39 +29,39 @@
     box-shadow: 3px 3px 8px 0px rgba(200, 200, 200, 0.2);
     border: 1px solid $white;
     transition: 0.2s;
-  
+
     &:hover {
-      border: 1px solid $blue;
+        border: 1px solid $blue;
     }
-  
+
     &__active {
-      color: $white;
-      background-color: $blue;
-      white-space: nowrap;
-      padding: 15px 32px;
-      border-radius: 15px;
-      font-size: 18px;
-      font-weight: 500;
-      box-shadow: 3px 3px 8px 0px rgba(200, 200, 200, 0.2);
-      border: 1px solid $blue;
-      transition: 0.2s;
+        color: $white;
+        background-color: $blue;
+        white-space: nowrap;
+        padding: 15px 32px;
+        border-radius: 15px;
+        font-size: 18px;
+        font-weight: 500;
+        box-shadow: 3px 3px 8px 0px rgba(200, 200, 200, 0.2);
+        border: 1px solid $blue;
+        transition: 0.2s;
     }
-  }
-  
-  .tab__container {
+}
+
+.tab__container {
     display: flex;
     flex-direction: column;
-  }
-  
-  .tab-sub__buttons {
+}
+
+.tab-sub__buttons {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     justify-content: start;
     margin-block: 80px 44px;
-  }
-  
-  .sub-button {
+}
+
+.sub-button {
     padding: 10px 30px;
     background-color: $white;
     color: $darkBlue;
@@ -72,53 +72,56 @@
     font-weight: 400;
     cursor: pointer;
     transition: 0.2s;
-  
+
     &:hover {
-      border: 1px solid $blue;
-      color: $blue;
+        border: 1px solid $blue;
+        color: $blue;
     }
-  
+
     &.active {
-      background-color: $blue;
-      color: $white;
-      border: 1px solid $blue;
+        background-color: $blue;
+        color: $white;
+        border: 1px solid $blue;
     }
-  }
-  
-  .tab__content {
+}
+
+.tab__content {
     display: flex;
     align-items: center;
     gap: 53px;
     margin-bottom: 100px;
-  }
-  
-  .tab-question__wrapper {
+}
+
+.tab-question__wrapper {
     display: flex;
     flex-direction: column;
     gap: 50px;
-  }
-  
-  .content__desk {
+}
+
+.content__desk {
     width: 650px;
     height: 400px;
     background-color: $white;
     box-shadow: 4px 5px 20px 0px rgba(96, 96, 96, 0.11);
     border-radius: 10px;
-  }
-  
-  .content__question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content__question {
     color: $darkBlue;
     font-size: 26px;
     font-weight: 700;
-  }
-  
-  .content-variants__wrapper {
+}
+
+.content-variants__wrapper {
     display: flex;
     flex-direction: column;
     gap: 30px;
-  }
-  
-  .content__variant {
+}
+
+.content__variant {
     min-width: 400px;
     width: 100%;
     padding: 10px 30px;
@@ -134,13 +137,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
+    position: relative;
+    z-index: 5;
+
     &:hover {
-      border: 1px solid $blue;
+        border: 1px solid $blue;
     }
-  }
-  
-  .tab-bottom__content {
+}
+
+.tab-bottom__content {
     display: flex;
     align-items: center;
     gap: 40px;
@@ -152,27 +157,27 @@
     border-radius: 10px;
     width: auto;
     box-shadow: 4px 5px 20px 0px rgba(96, 96, 96, 0.11);
-  }
-  
-  .timer__second {
+}
+
+.timer__second {
     color: $darkBlue;
     font-size: 18px;
     font-weight: 700;
-  }
-  
-  .timer__wrapper {
+}
+
+.timer__wrapper {
     display: flex;
     align-items: center;
     gap: 15px;
-  }
-  
-  .timer__info {
+}
+
+.timer__info {
     color: $darkBlue;
     font-size: 26px;
     font-weight: 700;
-  }
-  
-  .task-navigation__button {
+}
+
+.task-navigation__button {
     background-color: $blue;
     color: $white;
     padding-inline: 25px;
@@ -183,19 +188,20 @@
     align-items: center;
     font-size: 16px;
     font-weight: 500;
-  }
-  
-  .task-navigation__wrapper {
+}
+
+.task-navigation__wrapper {
     display: flex;
     align-items: center;
     gap: 30px;
-  }
-  
-  .content-variant__item {
+}
+
+.content-variant__item {
     width: 16px;
     height: 16px;
     background-color: $white;
     border-radius: 50%;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-  
+    position: relative;
+    z-index: 10;
+}
