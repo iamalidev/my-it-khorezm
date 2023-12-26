@@ -8,7 +8,7 @@ const Modules = () => {
   const [icon, setIcon] = useState("");
 
   useEffect(() => {
-    if (moduleData.map((el) => el.condition)  === "done") {
+    if (moduleData.map((el) => el.condition) === "done") {
       setIcon(<SmileIcon />);
     } else {
       setIcon(<PlatteIcon />);
@@ -48,7 +48,7 @@ const Modules = () => {
               </div>
 
               {el.condition == "done" ? (
-                <GreenTickIcon color="#166199" size="30" />
+                <GreenTickIcon color="#166199" size={30} />
               ) : el.condition == "progress" ? (
                 <GreenBtn
                   text="Davom ettirish"
@@ -57,6 +57,8 @@ const Modules = () => {
                 />
               ) : (
                 <LockIcon
+                  color="#fff"
+                  scale={1}
                   style={{
                     boxShadow: "3px 3px 8px 0px rgba(200, 200, 200, 0.20)",
                   }}

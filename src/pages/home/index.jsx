@@ -30,6 +30,7 @@ const HomePage = () => {
 
         <div className="course-card__wrapper">
           <CourseCard />
+          <CourseCard />
         </div>
 
         <div className="new-course__title">
@@ -37,6 +38,7 @@ const HomePage = () => {
         </div>
 
         <div className="course-card__wrapper">
+          <NewCourseCard />
           <NewCourseCard />
         </div>
       </div>

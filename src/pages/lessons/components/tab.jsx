@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { CircleLockIcon, PauseIcon, PlayIcon } from "@/assets/icons";
 
-const Tab = ({ tabs, setActiveTab, activeTab, handleToggle, toggle }) => {
+const Tab = ({ tabs, setActiveTab, activeTab, isToggled, toggle }) => {
+  
   const handleTabClick = (index) => {
     setActiveTab(index);
   };
@@ -21,8 +22,8 @@ const Tab = ({ tabs, setActiveTab, activeTab, handleToggle, toggle }) => {
         >
           <div className="tab__inner">
             {activeTab === index ? (
-              <button onClick={handleToggle}>
-                {toggle ? <PauseIcon /> : <PlayIcon />}
+              <button onClick={toggle}>
+                {isToggled ? <PauseIcon /> : <PlayIcon />}
               </button>
             ) : tab.condition ? (
               <CircleLockIcon />

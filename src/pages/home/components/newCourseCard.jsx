@@ -1,6 +1,6 @@
 import { Avatar } from "antd";
 import { courseInfo } from "@/utils/data";
-import { ClockIcon, WhiteCalendarIcon } from "@/assets/icons";
+import { CalendarIcon, ClockIcon, CourseCardBg } from "@/assets/icons";
 
 function NewCourseCard() {
   return (
@@ -8,7 +8,7 @@ function NewCourseCard() {
       {courseInfo.map((el) => {
         return (
           <div className="new-course__card" key={el.id}>
-            <span className="course-card__bg-img">{el.bgSvg}</span>
+            <span className="course-card__bg-img">{<CourseCardBg />}</span>
 
             <div className="course-card__main-entry">
               <p>{el.title}</p>
@@ -16,12 +16,12 @@ function NewCourseCard() {
 
             <div className="new-course__card-info">
               <div className="course-card__info-date">
-                <WhiteCalendarIcon />
+                <CalendarIcon color="#fff" size={18} />
                 <p>{el.date}</p>
               </div>
 
               <div className="course-card__info-date">
-                <ClockIcon />
+                <ClockIcon color="#fff" size={18} />
                 <p>{el.time}</p>
               </div>
             </div>

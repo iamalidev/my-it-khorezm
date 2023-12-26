@@ -1,26 +1,19 @@
-import { useEffect, useState } from "react";
 import { Avatar } from "antd";
 import { planData } from "@/utils/data";
+import { resultColors } from "@/utils/helpers";
 import { avatarImg } from "@/assets/images";
-import { GrayCalendarIcon, GrayClockIcon } from "@/assets/icons";
+import { CalendarIcon, ClockIcon } from "@/assets/icons";
 
 const PlanCard = () => {
-  const [border, setBorder] = useState([]);
-
-  useEffect(() => {
-    const randomColors = ["#fec64f", "#166199", "#374557"].sort(
-      () => 0.5 - Math.random()
-    );
-    setBorder(randomColors);
-  }, []);
-
   return (
     <>
       {planData.map((el) => {
         return (
           <div
             style={{
-              borderLeft: `17px solid ${border[el.id % border.length]}`,
+              borderLeft: `17px solid ${
+                resultColors[el.id % resultColors.length]
+              }`,
             }}
             className={`plan-card`}
             key={el.id}
@@ -29,14 +22,14 @@ const PlanCard = () => {
 
             <div className="plan-card__info">
               <div className="plan-card__info-date">
-                <GrayCalendarIcon />
+                <CalendarIcon color="#a098ae" size={19} />
                 <p>{el.date}</p>
               </div>
 
               <span className="plan-card__info-line"></span>
 
               <div className="plan-card__info-date">
-                <GrayClockIcon />
+                <ClockIcon color="#a098ae" size={19} />
                 <p>{el.time}</p>
               </div>
             </div>

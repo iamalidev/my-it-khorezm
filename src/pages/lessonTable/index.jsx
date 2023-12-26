@@ -16,10 +16,12 @@ const LessonTable = () => {
 
         <div className="course-card__wrapper">
           <CourseCard />
+          <CourseCard />
         </div>
 
         <SmallTitle text="Tugallangan" />
         <div className="course-card__wrapper">
+          <CrudCard />
           <CrudCard />
         </div>
       </div>

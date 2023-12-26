@@ -1,18 +1,10 @@
-import { useEffect, useState } from "react";
 import { Tooltip } from "antd";
 import SmallTitle from "@/components/smallTitle";
+import { resultColors } from "@/utils/helpers";
 
 const WeekCalendar = () => {
   const date = new Date();
   const now = date.getDay();
-  const [feature, setFeature] = useState([]);
-
-  useEffect(() => {
-    const randomColors = ["#fec64f", "#166199", "#374557"].sort(
-      () => 0.5 - Math.random()
-    );
-    setFeature(randomColors);
-  }, []);
 
   const weeks = [
     {
@@ -118,7 +110,9 @@ const WeekCalendar = () => {
             <Tooltip key={id} title={`${modal.time}`}>
               <div
                 style={{
-                  backgroundColor: `${feature[modal.id % feature.length]}`,
+                  backgroundColor: `${
+                    resultColors[modal.id % resultColors.length]
+                  }`,
                 }}
                 className={`week-calendar__modal ${week.toLowerCase()}-${time.replace(
                   ":",

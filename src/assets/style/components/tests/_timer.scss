@@ -1,0 +1,32 @@
+// .timer-container {
+// }
+
+.timer-svg {
+  position: relative;
+}
+
+.timer-circle {
+  fill: none;
+  stroke-width: 8;
+  transition: stroke-dasharray 0.1s linear;
+}
+
+.timer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+
+.green {
+  stroke: #27ae60;
+}
+
+.yellow {
+  stroke: #f39c12;
+}
+
+.red {
+  stroke: #e74c3c;
+}

@@ -17,9 +17,8 @@ const VideoPlayer = ({
   tabs,
   activeTab,
   videoRef,
-  handleToggle,
   toggle,
-  isModalOpen,
+  isToggled
 }) => {
   const [progress, setProgress] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -124,15 +123,15 @@ const VideoPlayer = ({
         <div className="main__control">
           {reverse ? (
             <ReverseIcon />
-          ) : toggle ? (
+          ) : isToggled ? (
             <CirclePauseIcon
               style={{ cursor: "pointer" }}
-              onClick={handleToggle}
+              onClick={toggle}
             />
           ) : (
             <CirclePlayIcon
               style={{ cursor: "pointer" }}
-              onClick={handleToggle}
+              onClick={toggle}
             />
           )}
         </div>
@@ -144,9 +143,9 @@ const VideoPlayer = ({
             <button
               className="navigation__button"
               style={{ paddingInline: "10px" }}
-              onClick={handleToggle}
+              onClick={toggle}
             >
-              {toggle ? <MiniPauseIcon /> : <MiniPlayIcon />}
+              {isToggled ? <MiniPauseIcon /> : <MiniPlayIcon />}
             </button>
 
             <div className="navigation__data">

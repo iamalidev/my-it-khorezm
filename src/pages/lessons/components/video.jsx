@@ -6,9 +6,9 @@ import Homework from "./video/homework";
 import Test from "./video/test";
 import ClosedFiles from "./video/closedFiles";
 import Files from "./video/files";
-import { TabLockIcon } from "@/assets/icons";
+import { LockIcon } from "@/assets/icons";
 
-export function VidStack({ setIsModalOpen, isModalOpen }) {
+export function VidStack() {
   const [lock, setLock] = useState(true);
 
   return (
@@ -24,7 +24,7 @@ export function VidStack({ setIsModalOpen, isModalOpen }) {
               <span className="tab-guide">
                 {lock == true ? (
                   <>
-                    Fayllar <TabLockIcon />
+                    Fayllar <LockIcon color="#a098ae" scale={0.6} />
                   </>
                 ) : (
                   <>Fayllar</>
@@ -35,8 +35,6 @@ export function VidStack({ setIsModalOpen, isModalOpen }) {
           >
             {lock == true ? (
               <ClosedFiles
-                setIsModalOpen={setIsModalOpen}
-                isModalOpen={isModalOpen}
                 setLock={setLock}
               />
             ) : (
@@ -49,7 +47,7 @@ export function VidStack({ setIsModalOpen, isModalOpen }) {
               <span className="tab-guide">
                 {lock == true ? (
                   <>
-                    Uyga vazifa <TabLockIcon />
+                    Uyga vazifa <LockIcon color="#a098ae" scale={0.6} />
                   </>
                 ) : (
                   <>Uyga vazifa</>
@@ -67,7 +65,7 @@ export function VidStack({ setIsModalOpen, isModalOpen }) {
               <span className="tab-guide">
                 {lock == true ? (
                   <>
-                    Sinov testi <TabLockIcon />
+                    Sinov testi <LockIcon color="#a098ae" scale={0.6} />
                   </>
                 ) : (
                   <>Sinov testi</>

@@ -2,14 +2,14 @@
 import { useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
 
-const MemberModal = ({ setLock, isModalOpen, setIsModalOpen }) => {
+const MemberModal = ({ setLock, isToggled, toggle }) => {
   const [firstValue, setFirstValue] = useState("");
   const [secondValue, setSecondValue] = useState("");
 
   const memberLock = () => {
-    if (isModalOpen == true && firstValue && secondValue) {
+    if (isToggled == true && firstValue && secondValue) {
       setLock(false);
-      setIsModalOpen(false);
+      toggle();
     }
   };
 
@@ -18,10 +18,6 @@ const MemberModal = ({ setLock, isModalOpen, setIsModalOpen }) => {
       memberLock();
     }
   });
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
 
   return (
     <>
@@ -33,7 +29,7 @@ const MemberModal = ({ setLock, isModalOpen, setIsModalOpen }) => {
             <p className="member-modal__title">A`zo bo`lish</p>
           </>,
         ]}
-        open={isModalOpen}
+        open={isToggled}
         footer={""}
       >
         <Form
@@ -92,7 +88,7 @@ const MemberModal = ({ setLock, isModalOpen, setIsModalOpen }) => {
 
             <Button
               size="large"
-              onClick={handleCancel}
+              onClick={toggle}
               className="member-modal__cancel"
             >
               Cancel

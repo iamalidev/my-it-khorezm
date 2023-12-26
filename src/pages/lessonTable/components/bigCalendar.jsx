@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
-import { GrayArrowIcon } from "@/assets/icons";
+import { useState } from "react";
+import { resultColors } from "@/utils/helpers";
+import { ArrowIcon } from "@/assets/icons";
 
 const Calendar = () => {
-  const [border, setBorder] = useState([]);
-
-  useEffect(() => {
-    const randomColors = ["#fec64f", "#166199", "#374557"].sort(
-      () => 0.5 - Math.random()
-    );
-    setBorder(randomColors);
-  }, []);
 
   const monthNames = [
     "Yanvar",
@@ -25,6 +18,7 @@ const Calendar = () => {
     "Noyabr",
     "Dekabr",
   ];
+
   const weekNames = [
     "Yakshanba",
     "Dushanba",
@@ -34,6 +28,7 @@ const Calendar = () => {
     "Juma",
     "Shanba",
   ];
+
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [ismodal] = useState([
     {
@@ -142,7 +137,7 @@ const Calendar = () => {
             )
           }
         >
-          <GrayArrowIcon />
+          <ArrowIcon color="#A098AE" size={32} scale={1.1} />
         </button>
         <h1 className="big-calendar__title">
           {monthNames[currentMonth.getMonth()]}, {currentMonth.getFullYear()}
@@ -155,7 +150,7 @@ const Calendar = () => {
             )
           }
         >
-          <GrayArrowIcon />
+          <ArrowIcon color="#A098AE" size={32} scale={1.1} />
         </button>
       </div>
       <div className="big-calendar__weeks">
@@ -183,9 +178,7 @@ const Calendar = () => {
                     key={index}
                     className="big-modal"
                     style={{
-                      borderLeft: `17px solid ${
-                        border[index % border.length]
-                      }`,
+                      borderLeft: `17px solid ${resultColors[index % resultColors.length]}`,
                     }}
                   >
                     <p className="big-modal__item"> {data.title}</p>

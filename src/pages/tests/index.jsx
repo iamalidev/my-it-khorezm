@@ -1,258 +1,18 @@
 import {
-  BigBlueArrowIcon,
+  ArrowIcon,
   ErrorIcon,
   GradientArrowIcon,
   GreenTickIcon,
 } from "@/assets/icons";
 import { useState } from "react";
-import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import Timer from "./components/timer";
+import { testData } from "@/utils/data";
 
 const Tests = () => {
-  const activeTabButton = document.querySelector(".lesson-button__active");
-  const tabContainer = document.querySelector(".lesson-buttons__wrapper");
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [activeButton, setActiveButton] = useState(1);
+  const [selectedOption, setSelectedOption] = useState([]);
+  const [activeButton, setActiveButton] = useState(0);
   const [activeTab, setActiveTab] = useState(1);
-  const [key, setKey] = useState(0);
-
-  const data = [
-    {
-      id: 1,
-      tab: [
-        {
-          id: 1,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 0,
-        },
-        {
-          id: 2,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 3,
-          question: "Question 3",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-        {
-          id: 4,
-          question: "Question 4",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 0,
-        },
-        {
-          id: 5,
-          question: "Question 5",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 6,
-          question: "Question 6",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-        {
-          id: 7,
-          question: "Question 7",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 0,
-        },
-        {
-          id: 8,
-          question: "Question 8",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 9,
-          question: "Question 9",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-        {
-          id: 10,
-          question: "Question 10",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 0,
-        },
-        {
-          id: 11,
-          question: "Question 11",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 12,
-          question: "Question 12",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-        {
-          id: 13,
-          question: "Question 13",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 0,
-        },
-        {
-          id: 14,
-          question: "Question 14",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 15,
-          question: "Question 15",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 2,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 3,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 4,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 5,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 6,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 7,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 8,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 17,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-    {
-      id: 9,
-      tab: [
-        {
-          id: 16,
-          question: "Question 1",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 1,
-        },
-        {
-          id: 18,
-          question: "Question 2",
-          options: ["Option 1", "Option 2", "Option 3"],
-          answer: 2,
-        },
-      ],
-    },
-  ];
-
-  const handleOptionSelect = (optionIndex) => {
-    setSelectedOption(optionIndex);
-    setTimeout(handleNextTaskTab, 1000);
-  };
+  const [seconds, setSeconds] = useState(10);
 
   const handleButtonClick = (buttonId) => {
     setActiveButton(buttonId);
@@ -264,37 +24,31 @@ const Tests = () => {
   };
 
   const handleNextTaskTab = () => {
-    data.map((el) =>
+    testData.map((el) =>
       el.tab.map((el) => {
         if (activeTab < el.id) {
           setActiveTab(activeTab + 1);
-          setSelectedOption(null);
+          setSeconds(10);
         }
       })
     );
   };
 
   const handlePrevTaskTab = () => {
-    data.map((el) =>
+    testData.map((el) =>
       el.tab.map((el) => {
         if (activeTab > el.id) {
           setActiveTab(activeTab - 1);
+          setSeconds(10);
         }
       })
     );
   };
 
-  console.log(activeTab);
-
   const activeTabDirection = (number) => {
-    tabContainer.scrollLeft = activeTabButton.offsetLeft - number;
+    document.querySelector(".lesson-buttons__wrapper").scrollLeft =
+      document.querySelector(".lesson-button__active").offsetLeft - number;
   };
-
-  const children = ({ remainingTime }) => (
-    <p className="timer__second" role="timer" aria-live="assertive">
-      {remainingTime}
-    </p>
-  );
 
   return (
     <>
@@ -303,19 +57,18 @@ const Tests = () => {
           <button
             className="lesson-navigation__button"
             onClick={() => {
-              data.map((el) => {
+              testData.map((el) => {
                 if (activeButton > el.id) {
                   setActiveButton(activeButton - 1);
                 }
               });
               activeTabDirection(1200);
             }}
-            disabled={activeButton === 1}
           >
-            <BigBlueArrowIcon />
+            <ArrowIcon color="#166199" size={32} scale={1.4} />
           </button>
           <div className="lesson-buttons__wrapper">
-            {data.map((button) => (
+            {testData.map((button) => (
               <button
                 key={button.id}
                 className={
@@ -326,14 +79,14 @@ const Tests = () => {
                 onClick={() => handleButtonClick(button.id)}
                 disabled={button.disabled}
               >
-                {button.id}-Dars
+                {button.id + 1}-Dars
               </button>
             ))}
           </div>
           <button
             className="lesson-navigation__button"
             onClick={() => {
-              data.map((el) => {
+              testData.map((el) => {
                 if (activeButton < el.id) {
                   setActiveButton(activeButton + 1);
                 }
@@ -341,31 +94,32 @@ const Tests = () => {
               activeTabDirection(700);
             }}
           >
-            <BigBlueArrowIcon
-              style={{
-                transform: "rotateZ(180deg) translateY(-3px) translateX(-2px)",
-              }}
-            />
+            <span>
+              <ArrowIcon color="#166199" size={32} scale={1.4} />
+            </span>
           </button>
         </div>
-        {activeTab >= 15 ? (
-          "results: 10/15"
+        {activeTab >= testData[activeButton].tab.length + 1 ? (
+          <p>{JSON.stringify(selectedOption)}</p>
         ) : (
           <div className="tab-content__container">
-            {data.map((button) =>
+            {testData.map((button) =>
               activeButton === button.id ? (
-                <>
-                  <div key={button.id} className="tab-sub__buttons">
+                <div key={button.id}>
+                  <div className="tab-sub__buttons">
                     {button.tab.map((tab) => (
-                      <div
+                      <button
                         key={tab.id}
                         className={`sub-button ${
                           activeTab === tab.id ? "active" : ""
                         }`}
-                        onClick={() => handleTabClick(tab.id)}
+                        onClick={() => {
+                          handleTabClick(tab.id);
+                          setSeconds(10);
+                        }}
                       >
                         {tab.id}-Savol
-                      </div>
+                      </button>
                     ))}
                   </div>
 
@@ -389,26 +143,39 @@ const Tests = () => {
                           <button
                             key={index}
                             className="content__variant"
-                            onClick={() => handleOptionSelect(index)}
+                            onClick={() => {
+                              if (
+                                selectedOption.length >=
+                                testData[activeButton].tab.length
+                              ) {
+                                console.log("error");
+                              } else {
+                                setTimeout(handleNextTaskTab(), 1000);
+                                setSelectedOption((prevMassive) => [
+                                  ...prevMassive,
+                                  index,
+                                ]);
+                              }
+                            }}
                             style={{
                               backgroundColor:
-                                selectedOption === index
-                                  ? index ===
-                                    button.tab.find(
-                                      (tab) => tab.id === activeTab
-                                    )?.answer
-                                    ? "#166199"
-                                    : "#FC6B57"
+                                selectedOption[activeTab] === index
+                                  ? index === button.tab[activeTab].answer
+                                    ? "#FC6B57"
+                                    : "#166199"
                                   : "white",
-                              color: selectedOption === index ? "#fff" : "#000",
+                              color:
+                                selectedOption[activeTab] === index
+                                  ? "#fff"
+                                  : "#000",
                             }}
                           >
                             {option}
-                            {selectedOption === index ? (
+                            {selectedOption[activeTab] === index ? (
                               index ===
                               button.tab.find((tab) => tab.id === activeTab)
                                 ?.answer ? (
-                                <GreenTickIcon size="20px" color="#fff" />
+                                <GreenTickIcon color="#fff" size={10} />
                               ) : (
                                 <ErrorIcon />
                               )
@@ -419,31 +186,21 @@ const Tests = () => {
                         ))}
                     </div>
                   </div>
-                </>
+                </div>
               ) : null
             )}
           </div>
         )}
       </div>
       <div className="tab-bottom__content">
-        <div className="timer__wrapper">
-          <CountdownCircleTimer
-            size={100}
-            key={key}
-            isPlaying
-            duration={10}
-            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-            colorsTime={[7, 5, 2, 0]}
-            onComplete={() => {
-              setKey((prevKey) => prevKey + 1);
-              handleNextTaskTab();
-            }}
-          >
-            {children}
-          </CountdownCircleTimer>
-
-          <p className="timer__info">Tugash vaqti</p>
-        </div>
+        <Timer
+          activeTab={activeTab}
+          testData={testData}
+          activeButton={activeButton}
+          seconds={seconds}
+          setSeconds={setSeconds}
+          handleNextTaskTab={handleNextTaskTab}
+        />
 
         <div className="task-navigation__wrapper">
           <button
@@ -455,7 +212,7 @@ const Tests = () => {
           <button
             className="task-navigation__button"
             onClick={handleNextTaskTab}
-            disabled={activeTab === data[data.length - 1].id}
+            disabled={activeTab === testData[activeButton].tab.length + 1}
           >
             Next <GradientArrowIcon />
           </button>

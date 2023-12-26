@@ -10,10 +10,14 @@ function CoursesPage() {
 
         <div className="course-card__wrapper">
           <CourseCard />
+          <CourseCard />
+          <CourseCard />
         </div>
 
         <SmallTitle text="Tugallangan" />
         <div className="course-card__wrapper">
+          <CrudCard />
+          <CrudCard />
           <CrudCard />
         </div>
       </div>

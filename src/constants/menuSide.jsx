@@ -21,7 +21,7 @@ export const menuData = [
   },
   {
     id: 2,
-    icon: <CalendarIcon />,
+    icon: <CalendarIcon color="#a098ae" size={32} />,
     label: "Dars jadvali",
     path: "/lesson-table",
   },

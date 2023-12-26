@@ -1,15 +1,15 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Progress } from "antd";
 import Accordion from "./components/accordion";
 import { VidStack } from "./components/video";
 import SmallTitle from "@/components/smallTitle";
 import Tab from "./components/tab";
 import VideoPlayer from "./components/videoPlayer";
+import { useToggle } from "@/utils/helpers";
 
 const Lessons = () => {
-  const [toggle, setToggle] = useState(false);
+  const [isToggled, toggle] = useToggle();
   const [activeTab, setActiveTab] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRef = useRef(null);
   let process = 20;
 
@@ -44,10 +44,9 @@ const Lessons = () => {
     videoRef.current.pause();
   };
 
-  const handleToggle = () => {
-    toggle ? pauseVideo() : playVideo();
-    setToggle(!toggle);
-  };
+  useEffect(() => {
+    isToggled ? playVideo() : pauseVideo();
+  }, [isToggled]);
 
   return (
     <>
@@ -58,12 +57,11 @@ const Lessons = () => {
           <VideoPlayer
             tabs={tabs}
             activeTab={activeTab}
-            handleToggle={handleToggle}
             toggle={toggle}
+            isToggled={isToggled}
             videoRef={videoRef}
-            isModalOpen={isModalOpen}
           />
-          <VidStack setIsModalOpen={setIsModalOpen} isModalOpen={isModalOpen} />
+          <VidStack />
         </div>
 
         <div className="accordion__wrapper">
@@ -93,7 +91,7 @@ const Lessons = () => {
             title={"Video Kurslar"}
             content={
               <Tab
-                handleToggle={handleToggle}
+                isToggled={isToggled}
                 toggle={toggle}
                 tabs={tabs}
                 activeTab={activeTab}

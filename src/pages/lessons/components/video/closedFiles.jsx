@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useToggle } from "@/utils/helpers";
 import MemberModal from "../memberModal";
 import {
   BgBookIcon,
@@ -7,11 +8,8 @@ import {
   CrownIcon,
 } from "@/assets/icons";
 
-function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+function ClosedFiles({ setLock }) {
+const [isToggled, toggle] = useToggle();
 
   return (
     <>
@@ -19,7 +17,7 @@ function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
         <h2 className="close-title">
           Qo’shimcha funksiyalarni ochish uchun a’zo bo’ling !
         </h2>
-        <button className="close-btn" onClick={showModal}>
+        <button className="close-btn" onClick={toggle}>
           A`zo bo`lish
         </button>
         <BgBookIcon className="close-book__icon" />
@@ -29,8 +27,8 @@ function ClosedFiles({ setLock, setIsModalOpen, isModalOpen }) {
       </div>
       <MemberModal
         setLock={setLock}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
+        isToggled={isToggled}
+        toggle={toggle}
       />
     </>
   );
